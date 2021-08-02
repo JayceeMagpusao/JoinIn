@@ -5,7 +5,7 @@ module.exports = {
   entry: './frontend/join_in.jsx',
   output: {
     path: path.resolve(__dirname, 'app', 'assets', 'javascripts'),
-    filename: 'app/assets/javascripts'
+    filename: 'bundle.js'
   },
   module: {
     rules: [
