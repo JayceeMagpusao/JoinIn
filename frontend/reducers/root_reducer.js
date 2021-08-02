@@ -1,9 +1,9 @@
-// import { combineReducers } from 'redux';
+import { combineReducers } from 'redux';
 
-// import session from './session_reducer';
+import session from './session_reducer';
 
-// const rootReducer = combineReducers({
-//   session
-// });
+const rootReducer = combineReducers({
+  session
+});
 
-// export default rootReducer;
+export default rootReducer;
