@@ -8,9 +8,9 @@ import {
   HashRouter
 } from 'react-router-dom';
 
-// import GreetingContainer from './greeting/greeting_container';
+import GreetingContainer from './greeting/greeting_container';
 import SignUpFormContainer from './session/signup_form_container';
-// import LogInFormContainer from './session/login_form_container';
+import LogInFormContainer from './session/login_form_container';
 // import SearchContainer from './search/search_container';
 // import BenchShowContainer from './bench_show/bench_show_container';
 // import BenchFormContainer from './bench_form/bench_form_container';
@@ -25,10 +25,11 @@ const App = () => (
       {/* <GreetingContainer /> */}
     </header>
     <Switch>
-      {/* <AuthRoute exact path="/login" component={LogInFormContainer} /> */}
+      <Route exact path="/" component={GreetingContainer} />
+      <AuthRoute exact path="/login" component={LogInFormContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
-      {/* <ProtectedRoute exact path="/benches/new" component={BenchFormContainer} />
-      <Route path="/benches/:benchId" component={BenchShowContainer} /> */}
+      {/* <ProtectedRoute exact path="/benches/new" component={BenchFormContainer} /> */}
+      {/* <Route path="/benches/:benchId" component={BenchShowContainer} /> */}
       {/* <Route exact path="/" component={SearchContainer} /> */}
     </Switch>
   </div>

@@ -5,5 +5,3 @@ import users from './users_reducer';
 export default combineReducers({
   users,
 });
-
-export default entitiesReducer
