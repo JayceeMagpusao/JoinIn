@@ -6,12 +6,8 @@ class SessionForm extends React.Component {
     this.state = {
       email: '',
       password: '',
-      company_name: '',
-      industry_type: '',
-      job_title: '',
-      start_date: '',
-      end_date: '',
-
+      first_name: '',
+      last_name: '',
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -65,43 +61,19 @@ class SessionForm extends React.Component {
               className="login-input" />
           </label>
           <br/>
-          <label>Company Name:
+          <label>First Name:
             <input
               type="text"
-              value={this.state.company_name}
-              onChange={this.update('company_name')}
+              value={this.state.first_name}
+              onChange={this.update('first_name')}
               className="login-input" />
           </label>
           <br/>
-          <label>Industry Type:
+          <label>Last Name:
             <input
               type="text"
-              value={this.state.industry_type}
-              onChange={this.update('industry_type')}
-              className="login-input" />
-          </label>
-          <br/>
-          <label>Job Title:
-            <input
-              type="text"
-              value={this.state.job_title}
-              onChange={this.update('job_title')}
-              className="login-input" />
-          </label>
-          <br/>
-          <label>Start Date:
-            <input
-              type="date"
-              value={this.state.start_date}
-              onChange={this.update('start_date')}
-              className="login-input" />
-          </label>
-          <br/>
-          <label>End Date:
-            <input
-              type="date"
-              value={this.state.end_date}
-              onChange={this.update('end_date')}
+                value={this.state.last_name}
+                onChange={this.update('last_name')}
               className="login-input" />
           </label>
           <br/>
