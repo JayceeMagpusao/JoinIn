@@ -4,17 +4,25 @@ body {
   
 }
 
-.Joinin_log {
+/* .Joinin_log {
   display: flex;
   align-items: center;
   flex-direction: column; 
-}
+} */
 
 .login_form-container {
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 400px;
+  margin: auto;
+}
+
+.login-form-box {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  /* width: 400px; */
+  margin: auto;
 }
 
 .login-input {
@@ -23,9 +31,33 @@ body {
 
 .email-label, .password-label {
   margin-bottom: 4px;
-  height: fit-content;
+  color: #666666;
+}
+
+.password-label {
+  margin-top: 16px;
 }
 
 .session-submit {
-  width: 100%;
+  width: 100%; 
+  border-radius: 24px;
+  background-color: #0A66C2;
+  color: #FFFFF5;
+  font-size: 1.6rem;
+  display: inline-block;
+  cursor: pointer;
+  line-height: 40px;
+  overflow: hidden;
+  outline-width2px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0 16px 0 16px;
+  border: none;
+  background: solid;
+}
+
+.session-submit:hover {
+  background-color: #004182;
 }
