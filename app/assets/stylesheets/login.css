@@ -4,28 +4,28 @@ body {
   
 }
 
-.login-form-container {
+.Joinin_log {
   display: flex;
+  align-items: center;
+  flex-direction: column; 
+}
+
+.login_form-container {
+  display: flex;
+  align-items: center;
   flex-direction: column;
-  align-items: column;
+  width: 400px;
+}
+
+.login-input {
+  width: 100%;
 }
 
 .email-label, .password-label {
-  font-size: 0.8rem;
-  color: #666666;
   margin-bottom: 4px;
-  width: fit-content;
   height: fit-content;
 }
 
 .session-submit {
-  background-color: #0073b1;
-  border: 0;
-  border-radius: 2px;
-  box-sizing: border-box;
-  color: #fff;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
+  width: 100%;
 }

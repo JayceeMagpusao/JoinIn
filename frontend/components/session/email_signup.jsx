@@ -45,7 +45,7 @@ class EmailSignupForm extends React.Component {
           {/* Please {this.props.formType} or {this.props.navLink}
           {this.renderErrors()} */}
           <div className="login-form">
-            <label class="email-label">Email
+            <label className="email-label">Email
               <br />
               <input
                 type="text"
@@ -54,7 +54,7 @@ class EmailSignupForm extends React.Component {
                 className="login-input" />
             </label>
             <br />
-            <label class="password-label">Password (6 or more characters)
+            <label className="password-label">Password (6 or more characters)
               <br />
               <input
                 type="password"
