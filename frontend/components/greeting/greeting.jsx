@@ -6,9 +6,9 @@ import { Link } from 'react-router-dom';
 const Greeting = ({ currentUser, logout }) => {
   const sessionLinks = () => (
     <nav className="login-signup">
-      <Link to="/login">Login</Link>
+      <Link to="/landing">Sign In</Link>
       &nbsp;or&nbsp;
-      <Link to="/signup">Sign up!</Link>
+      <Link to="/start-signup">Join now</Link>
     </nav>
   );
   const personalGreeting = () => (
@@ -16,8 +16,9 @@ const Greeting = ({ currentUser, logout }) => {
       <h2 className="header-name">{`Hi, ${currentUser.first_name}!`}</h2>
       <button className="header-button" onClick={logout}>Log Out</button>
     </hgroup>
+    
   );
-
+  
   return currentUser ? personalGreeting() : sessionLinks();
 };
 
