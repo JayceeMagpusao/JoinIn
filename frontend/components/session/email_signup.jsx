@@ -40,12 +40,13 @@ class EmailSignupForm extends React.Component {
     return (
       <div className="login_form-container">
         <form className="login-form-box">
-          Welcome to JoinIn!
+          {/* Welcome to JoinIn! */}
           <br />
           {/* Please {this.props.formType} or {this.props.navLink}
           {this.renderErrors()} */}
           <div className="login-form">
-            <label>Email:
+            <label class="email-label">Email
+              <br />
               <input
                 type="text"
                 value={this.state.email}
@@ -53,7 +54,8 @@ class EmailSignupForm extends React.Component {
                 className="login-input" />
             </label>
             <br />
-            <label>Password:
+            <label class="password-label">Password (6 or more characters)
+              <br />
               <input
                 type="password"
                 value={this.state.password}
