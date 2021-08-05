@@ -24,7 +24,7 @@ const App = () => (
   <div>
     <header>
       {/* <Link to="/" className="header-link"> */}
-      <div className="Joinin_Logo">JoinIn</div>
+      {/* <div className="Joinin_Logo">JoinIn</div> */}
       {/* </Link> */}
       {/* <GreetingContainer /> */}
     </header>

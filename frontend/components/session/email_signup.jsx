@@ -39,8 +39,13 @@ class EmailSignupForm extends React.Component {
   render() {
     return (
       <div className="login_form-container">
+        <div className="joinin-logo-title">
+          <label className="joinin-logo">Join
+            <img src="../../images/linkedin-logo-copy.png" className="login-logo-image"/>
+          </label>
+        </div>
         <form className="login-form-box">
-          <label className="login_subtitle">
+          <label className="login-subtitle">
             Make the most of your professional life
           </label>
           <br />

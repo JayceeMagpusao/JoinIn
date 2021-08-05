@@ -4,12 +4,6 @@ body {
   
 }
 
-/* .Joinin_log {
-  display: flex;
-  align-items: center;
-  flex-direction: column; 
-} */
-
 .login_form-container {
   display: flex;
   align-items: center;
@@ -21,8 +15,8 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
-  /* width: 400px; */
-  margin: auto;
+  width: 400px;
+  /* margin: auto; */
 }
 
 .login-input {
@@ -60,4 +54,24 @@ body {
 
 .session-submit:hover {
   background-color: #004182;
+}
+
+.joinin-logo {
+  font-size: 4vh;
+  font-weight: 600;
+  color: #0A66C2;
+  font-family: sans-serif;
+}
+
+.joinin-logo-title {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.login-subtitle {
+  color: #000;
+  font-size: 4vh;
+  font-weight: 375;
+  padding: 24px 16px
 }

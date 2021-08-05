@@ -43,7 +43,7 @@ class LandingLoginForm extends React.Component {
           <Link to="/start-signup">Join now</Link>
         </div>
         <form onSubmit={this.handleSubmit} className="login-form-box">
-          Welcome to JoinIn!
+          {/* Welcome to JoinIn! */}
           <br />
           {this.renderErrors()}
           <div className="login-form">
