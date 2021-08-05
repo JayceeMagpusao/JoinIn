@@ -40,7 +40,9 @@ class EmailSignupForm extends React.Component {
     return (
       <div className="login_form-container">
         <form className="login-form-box">
-          {/* Welcome to JoinIn! */}
+          <label className="login_subtitle">
+            Make the most of your professional life
+          </label>
           <br />
           {/* Please {this.props.formType} or {this.props.navLink}
           {this.renderErrors()} */}
@@ -79,7 +81,7 @@ class EmailSignupForm extends React.Component {
               className="login-input" />
           </label> */}
             <br />
-            <button className="session-submit" onClick={this.handleSubmit}>Agree and Join</button>
+            <button className="session-submit" onClick={this.handleSubmit}>{`Agree & Join`}</button>
           </div>
         </form>
       </div>
