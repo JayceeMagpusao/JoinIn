@@ -87,6 +87,11 @@ class EmailSignupForm extends React.Component {
           </label> */}
             <br />
             <button className="session-submit" onClick={this.handleSubmit}>{`Agree & Join`}</button>
+            <div className="already-signed-up-box">
+              <label className="already-signed-up-text">Already on JoinIn?
+                <Link to="/final-signup">Sign in</Link>
+              </label>
+            </div>
           </div>
         </form>
       </div>
