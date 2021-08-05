@@ -13,7 +13,6 @@ const mapStateToProps = ({ errors }) => {
 const mapDispatchToProps = dispatch => {
   return {
     nameEmailForm: (user) => dispatch(signupEmailPassword(user)),
-
   };
 };
 

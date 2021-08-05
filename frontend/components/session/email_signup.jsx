@@ -1,4 +1,6 @@
 import React from 'react';
+import LogoURL from '../../../app/assets/images/linkedin-logo-copy.png';
+import { Link } from 'react-router-dom';
 
 class EmailSignupForm extends React.Component {
   constructor(props) {
@@ -41,7 +43,7 @@ class EmailSignupForm extends React.Component {
       <div className="login_form-container">
         <div className="joinin-logo-title">
           <label className="joinin-logo">Join
-            <img src="../../images/linkedin-logo-copy.png" className="login-logo-image"/>
+            <img src={LogoURL} className="login-logo-image"/>
           </label>
         </div>
         <form className="login-form-box">
@@ -89,8 +91,8 @@ class EmailSignupForm extends React.Component {
             <button className="session-submit" onClick={this.handleSubmit}>{`Agree & Join`}</button>
             <div className="already-signed-up-box">
               <label className="already-signed-up-text">Already on JoinIn?
-                <Link to="/final-signup">Sign in</Link>
               </label>
+                <Link to="/landing">Sign in</Link>
             </div>
           </div>
         </form>
