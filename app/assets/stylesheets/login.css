@@ -76,3 +76,8 @@ body {
   padding: 24px 16px
 }
 
+.login-logo-image {
+  object-fit: contain;
+  height: 45px;
+  margin: 0px;
+}

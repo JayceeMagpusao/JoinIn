@@ -1,4 +1,6 @@
 import React from 'react';
+import LogoURL from '../../../app/assets/images/linkedin.png';
+import { Link } from 'react-router-dom';
 
 class EmailSignupForm extends React.Component {
   constructor(props) {
@@ -41,9 +43,15 @@ class EmailSignupForm extends React.Component {
   render() {
     return (
       <div className="login_form-container">
+        <div className="joinin-logo-title">
+          <label className="joinin-logo">Join
+            <img src={LogoURL} className="login-logo-image" />
+          </label>
+        </div>
         <form className="login-form-box">
-          Welcome to JoinIn!
-          <br />
+          <label className="login-subtitle">
+            Make the most of your professional life
+          </label>
           {/* Please {this.props.formType} or {this.props.navLink} */}
           {this.renderErrors()}
           <div className="login-form">

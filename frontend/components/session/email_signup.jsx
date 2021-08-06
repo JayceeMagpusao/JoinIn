@@ -1,5 +1,5 @@
 import React from 'react';
-import LogoURL from '../../../app/assets/images/linkedin-logo-copy.png';
+import LogoURL from '../../../app/assets/images/linkedin.png';
 import { Link } from 'react-router-dom';
 
 class EmailSignupForm extends React.Component {
@@ -90,9 +90,8 @@ class EmailSignupForm extends React.Component {
             <br />
             <button className="session-submit" onClick={this.handleSubmit}>{`Agree & Join`}</button>
             <div className="already-signed-up-box">
-              <label className="already-signed-up-text">Already on JoinIn?
-              </label>
-                <Link to="/landing">Sign in</Link>
+              <label className="already-signed-up-text">Already on JoinIn?</label>
+              <Link to="/landing">Sign in</Link>
             </div>
           </div>
         </form>

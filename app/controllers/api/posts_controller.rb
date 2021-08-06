@@ -6,7 +6,7 @@ class API::PostsController < ApplicationController
   end
 
   def show
-    @posts = Post.find(params[:body])
+    @posts = Post.find(params[:id])
   end
 
   private
