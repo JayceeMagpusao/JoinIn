@@ -1,15 +1,15 @@
 import { RECEIVE_POSTS, RECEIVE_POST } from '../actions/post_actions';
 
-const benchesReducer = (oldState = {}, action) => {
+const benchesReducer = (state = {}, action) => {
   Object.freeze(state)
   switch (action.type) {
     case RECEIVE_POSTS:
       return action.posts;
     case RECEIVE_POST:
       const newPost = { [action.post.id]: action.post };
-      return Object.assign({}, oldState, newPost);
+      return Object.assign({}, state, newPost);
     default:
-      return oldState;
+      return state;
   }
 };
 

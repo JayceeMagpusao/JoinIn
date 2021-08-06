@@ -16,9 +16,9 @@ const Greeting = ({ currentUser, logout }) => {
       <h2 className="header-name">{`Hi, ${currentUser.first_name}!`}</h2>
       <button className="header-button" onClick={logout}>Log Out</button>
     </hgroup>
-    
+
   );
-  
+
   return currentUser ? personalGreeting() : sessionLinks();
 };
 

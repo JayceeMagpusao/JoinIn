@@ -1,8 +1,7 @@
-export const fetchPosts = data => (
+export const fetchPosts = () => (
   $.ajax({
     method: 'GET',
     url: 'api/posts',
-    data
   })
 );
 
@@ -13,10 +12,10 @@ export const fetchPost = id => (
   })
 );
 
-export const createPost = postForm => (
+export const createPost = post => (
   $.ajax({
     method: 'POST',
     url: 'api/posts',
-    data: { postForm }
+    data: { post: post }
   })
 );
