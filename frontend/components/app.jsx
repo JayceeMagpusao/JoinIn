@@ -27,7 +27,7 @@ const App = () => (
       {/* <Link to="/" className="header-link"> */}
       {/* <div className="Joinin_Logo">JoinIn</div> */}
       {/* </Link> */}
-      {/* <GreetingContainer /> */}
+      {/* <NewGreetingContainer /> */}
     </header>
     <Switch>
       <ProtectedRoute exact path="/" component={NewGreetingContainer} />
@@ -38,7 +38,7 @@ const App = () => (
       <AuthRoute exact path="/final-signup" component={FinalSignupContainer} />
       {/* <AuthRoute exact path="/signup" component={EmailSignupContainer} /> */}
       {/* <AuthRoute exact path="/signup" component={SignUpFormContainer} /> */}
-      <Route exact path="/posts/new" component={PostFormContainer} />
+      {/* <Route exact path="/posts/new" component={PostFormContainer} /> */}
       {/* <Route path="/benches/:benchId" component={BenchShowContainer} /> */}
       {/* <Route exact path="/" component={SearchContainer} /> */}
     </Switch>

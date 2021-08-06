@@ -1,6 +1,8 @@
 import React from 'react';
 import LogoURL from '../../../app/assets/images/linkedin.png';
 import { Link } from 'react-router-dom';
+import { openModal } from '../../actions/modal_actions';
+import Modal from '../modal/modal';
 
 class NewGreeting extends React.Component {
   constructor(props) {
@@ -55,7 +57,9 @@ class NewGreeting extends React.Component {
     return (
       <div className="new_greeting">
         <div>{`Hi, ${this.props.currentUser}!`}</div>
-        <button onClick={this.createPost}>Post</button>
+        <Modal />
+        <button onClick={() => this.props.openModal('post')}>Post</button>
+        {/* {this.props.post} */}
         <button onClick={this.logout}>Logout</button>
       </div>
     )

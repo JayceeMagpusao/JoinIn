@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { logout } from '../../actions/session_actions';
 import NewGreeting from './new_greeting';
+import { openModal, closeModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state) => {
   return {
@@ -15,6 +16,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => {
   return {
     logout: () => dispatch(logout()),
+    // post: (<button onClick={() => openModal('post')}>Post</button>),
+    closeModal: () => dispatch(closeModal()),
+    openModal: (modal) => dispatch(openModal(modal))
   };
 };
 

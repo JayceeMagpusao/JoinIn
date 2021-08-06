@@ -35,7 +35,7 @@ class PostForm extends React.Component {
             value={this.state.body}
             onChange={this.update('body')} />
         </label>
-        <button>Create Event</button>
+        <button>Create Post</button>
       </form>
     )
   }
