@@ -38,7 +38,7 @@ class NewGreeting extends React.Component {
   }
 
   createPost(){
-    this.props.history.push("/posts/new")
+    this.props.history.push("/feed")
   }
 
   // renderErrors() {

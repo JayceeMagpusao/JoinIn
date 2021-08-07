@@ -30,7 +30,7 @@ const App = () => (
       {/* <NewGreetingContainer /> */}
     </header>
     <Switch>
-      <ProtectedRoute exact path="/" component={NewGreetingContainer} />
+      <ProtectedRoute exact path="/feed" component={NewGreetingContainer} />
       {/* <ProtectedRoute exact path="/" component={GreetingContainer} /> */}
       <AuthRoute exact path="/landing" component={LandingLoginContainer} />
       {/* <AuthRoute exact path="/login" component={LogInFormContainer} /> */}

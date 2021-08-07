@@ -39,7 +39,7 @@ class LandingLoginForm extends React.Component {
     return (
       <div className="login_form-container">
         <div >
-          <Link to="/landing">Sign in</Link>
+          {/* <Link to="/landing">Sign in</Link> */}
           <Link to="/start-signup">Join now</Link>
         </div>
         <form onSubmit={this.handleSubmit} className="login-form-box">

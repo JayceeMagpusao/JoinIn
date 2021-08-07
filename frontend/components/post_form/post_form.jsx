@@ -21,10 +21,10 @@ class PostForm extends React.Component {
     let post = Object.assign({}, this.state)
     console.log(post)
     this.props.createPost(post)
-      .then(() => {
-        this.props.history.push("/")
-      })
-    // console.log("prooooopppppsss", this.props)
+      // .then(() => {
+      //   this.props.history.push("/feed")
+      // })
+    console.log("prooooopppppsss", this.props)
   }
 
   render() {
