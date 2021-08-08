@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 // import LoginFormContainer from '../session_form/login_form_container';
 // import SignupFormContainer from '../session_form/signup_form_container';
 import PostFormContainer from '../post_form/post_form_container';
+import { withRouter } from 'react-router-dom';
 
 function Modal({ modal, closeModal }) {
   if (!modal) {

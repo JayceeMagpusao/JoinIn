@@ -9,7 +9,7 @@ export const receivePosts = posts => ({
   posts,
 });
 
-export const receivePost = ({ post }) => ({
+export const receivePost = post => ({
   type: RECEIVE_POST,
   post,
 });
@@ -19,8 +19,8 @@ export const removePost = id => ({
   id
 })
 
-export const fetchPosts = posts => dispatch => (
-  APIUtil.fetchPost(posts).then(posts => (
+export const fetchPosts = () => dispatch => (
+  APIUtil.fetchPosts().then(posts => (
     dispatch(receivePosts(posts))
   ))
 );

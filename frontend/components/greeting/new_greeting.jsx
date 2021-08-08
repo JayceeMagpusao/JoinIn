@@ -18,6 +18,8 @@ class NewGreeting extends React.Component {
     this.logout = this.logout.bind(this);
     this.createPost = this.createPost.bind(this);
   }
+  
+  componentDidMount() {this.props.fetchPosts()}
 
   update(field) {
     return e => this.setState({
@@ -41,6 +43,7 @@ class NewGreeting extends React.Component {
     this.props.history.push("/feed")
   }
 
+
   // renderErrors() {
   //   return (
   //     <ul>
@@ -54,15 +57,39 @@ class NewGreeting extends React.Component {
   // }
 
   render() {
-    return (
-      <div className="new_greeting">
+    let posts = this.props.posts ? this.props.posts : [];
+    console.log("creating postsstststss", posts)
+    console.log("creating propppsspps", this.props)
+    if (posts.length !== 0 && Array.isArray(posts)){
+      return (
+        <div className="new_greeting">
+          <div>{`Hi, ${this.props.currentUser}!`}</div>
+          <Modal />
+          <button onClick={() => this.props.openModal('post')}>Post</button>
+          {/* {this.props.post} */}
+          <button onClick={this.logout}>Logout</button>
+          {
+            posts.map ((post, index) => {
+              return (
+                <div key={index}>
+                  {post.body}
+                </div>
+              )
+            })
+          }
+        </div>
+      )
+    } else {
+      return (
+        <div className="new_greeting">
         <div>{`Hi, ${this.props.currentUser}!`}</div>
         <Modal />
         <button onClick={() => this.props.openModal('post')}>Post</button>
         {/* {this.props.post} */}
         <button onClick={this.logout}>Logout</button>
       </div>
-    )
+      )
+    }
   }
 }
 
