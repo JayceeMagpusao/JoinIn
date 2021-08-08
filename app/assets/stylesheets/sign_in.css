@@ -1,0 +1,21 @@
+.sign-in-form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 50%;
+}
+
+.sign-in-joinin-logo {
+  font-size: 4vh;
+  font-weight: 600;
+  color: #0A66C2;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: row;
+}
+
+.sign-in-joinin-logo-title {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}

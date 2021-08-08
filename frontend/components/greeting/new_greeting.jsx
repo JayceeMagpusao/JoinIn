@@ -58,8 +58,7 @@ class NewGreeting extends React.Component {
 
   render() {
     let posts = this.props.posts ? this.props.posts : [];
-    console.log("creating postsstststss", posts)
-    console.log("creating propppsspps", this.props)
+
     if (posts.length !== 0 && Array.isArray(posts)){
       return (
         <div className="new_greeting">

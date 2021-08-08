@@ -1,4 +1,5 @@
 import React from 'react';
+import LogoURL from '../../../app/assets/images/linkedin.png';
 import { Link } from 'react-router-dom';
 
 class LandingLoginForm extends React.Component {
@@ -37,33 +38,43 @@ class LandingLoginForm extends React.Component {
 
   render() {
     return (
-      <div className="login_form-container">
-        <div >
-          {/* <Link to="/landing">Sign in</Link> */}
-          <Link to="/start-signup">Join now</Link>
+      <div className="sign-in-form-container">
+        <div className="sign-in-joinin-logo-title">
+          <label className="sign-in-joinin-logo">Join
+            <img src={LogoURL} className="sign-in-joinin-logo-image" />
+          </label>
         </div>
-        <form onSubmit={this.handleSubmit} className="login-form-box">
-          {/* Welcome to JoinIn! */}
+        <form onSubmit={this.handleSubmit} className="sign-in-form-box">
+          <label className="sign-in-title">
+            Sign in
+          </label>
+          <label className="sign-in-subtitle">
+            Stay updated on your professional world
+          </label>
           <br />
           {this.renderErrors()}
-          <div className="login-form">
-            <label>Email:
+          <div className="sign-in-form">
+            <label>Email
               <input
                 type="text"
                 value={this.state.email}
                 onChange={this.update('email')}
-                className="login-input" />
+                className="sign-in-input" />
             </label>
             <br />
-            <label>Password:
+            <label>Password
               <input
                 type="password"
                 value={this.state.password}
                 onChange={this.update('password')}
-                className="login-input" />
+                className="sign-in-input" />
             </label>
             <br />
-            <input className="session-submit" type="submit" value={this.props.formType} />
+            <input className="sign-in-submit" type="submit" value={this.props.formType} />
+          </div>
+          <div className="new-to-joinin-box">
+            <label className="new-to-joinin-text">New to JoinIn?</label>
+            <Link to="/start-signup">Join now</Link>
           </div>
         </form>
       </div>
