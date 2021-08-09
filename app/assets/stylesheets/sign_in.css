@@ -2,7 +2,9 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 0 50%;
+  align-items: center;
+  min-height: 100vh;
+
 }
 
 .sign-in-joinin-logo {
@@ -16,6 +18,83 @@
 
 .sign-in-joinin-logo-title {
   display: flex;
-  align-items: center;
   flex-direction: row;
+  margin-bottom: 2%;
+}
+
+.sign-in-joinin-logo-image {
+  height: 5vh;
+}
+
+.sign-in-join-form {
+  width: 352px;
+  -webkit-box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
+  padding: 24px 32px 32px;
+  border-radius: 8px;
+  margin: 0 auto;
+  background: #fff;
+}
+
+.sign-in-title {
+  font-size: 2.2rem;
+  line-height: 1.25;
+  font-weight: 600;
+  color: rgba(0,0,0,0.9);
+  padding: 0 0 4px 0;
+}
+
+.sign-in-email-input {
+  width: 100%
+}
+
+.sign-in-submit  {
+  background-color: #0a66c2;
+  font-size: 1.6rem;
+  color: #fff;
+  box-sizing: border-box;
+  font-weight: 600;
+  outline-width: 2px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 28px;
+  width: 100%;
+}
+
+.sign-in-subtitle {
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.42857;
+}
+
+.sign-in-password-input {
+  width: 100%
+}
+
+.new-to-joinin-box {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  padding-top: 4vh;
+}
+
+.sign-in-submit {
+  width: 100%; 
+  border-radius: 24px;
+  background-color: #0A66C2;
+  color: #FFFFF5;
+  font-size: 1.6rem;
+  display: inline-block;
+  cursor: pointer;
+  line-height: 40px;
+  overflow: hidden;
+  outline-width: 2px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0 16px 0 16px;
+  border: none;
+  background: solid;
 }

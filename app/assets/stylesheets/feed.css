@@ -1,0 +1,13 @@
+.feed-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 30vh;
+  border-radius: 8px;
+  background: #fff;
+  -webkit-box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
+  margin: 10px;
+  text-align: left;
+  cursor: pointer;
+}

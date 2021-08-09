@@ -3,6 +3,7 @@ import LogoURL from '../../../app/assets/images/linkedin.png';
 import { Link } from 'react-router-dom';
 import { openModal } from '../../actions/modal_actions';
 import Modal from '../modal/modal';
+import { deletePost, editPost } from '../../actions/post_actions';
 
 class NewGreeting extends React.Component {
   constructor(props) {
@@ -17,6 +18,7 @@ class NewGreeting extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.logout = this.logout.bind(this);
     this.createPost = this.createPost.bind(this);
+    this.deletePost = this.deletePost.bind(this);
   }
   
   componentDidMount() {this.props.fetchPosts()}
@@ -43,6 +45,13 @@ class NewGreeting extends React.Component {
     this.props.history.push("/feed")
   }
 
+  deletePost(id){
+    this.props.deletePost(id);
+  }
+
+  editPost(id, post){
+    this.props.editPost(id, post);
+  }
 
   // renderErrors() {
   //   return (
@@ -70,8 +79,17 @@ class NewGreeting extends React.Component {
           {
             posts.map ((post, index) => {
               return (
-                <div key={index}>
+                <div key={index} className="feed-box">
                   {post.body}
+                  {/* {console.log("inside state delete button", this.state)}
+                  {console.log("inside props delete button", this.props)} */}
+                  {this.props.current_user_id === post.author_id ? 
+                    <button onClick={this.props.openModal('edit')} className="feed-post-edit">Edit</button>
+                    : <br />}
+                  {this.props.current_user_id === post.author_id ? 
+                    <button onClick={this.deletePost} className="feed-post-delete">Delete</button>
+                    : <br />}
+                  {/* <Modal /> */}
                 </div>
               )
             })

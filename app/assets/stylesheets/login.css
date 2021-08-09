@@ -16,7 +16,6 @@ body {
   align-items: center;
   flex-direction: column;
   width: 400px;
-  /* margin: auto; */
 }
 
 .login-input {
