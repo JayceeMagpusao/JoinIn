@@ -25,12 +25,7 @@ class PostForm extends React.Component {
 
     console.log("really new post", post)
     this.props.createPost(post)
-    // .then(() => {
-    //   this.props.history.push("/feed")
-    //   console.log("prooooopppppsss", this.props)
-    // })
     .then(() => this.props.closeModal())
-    // .then(this.setState({post: true}))
   }
 
   render() {

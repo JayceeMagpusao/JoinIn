@@ -2,7 +2,7 @@ import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 // import LoginFormContainer from '../session_form/login_form_container';
-import EditFormContainer from '../post_form/edit_post_form_container';
+import EditFormContainer from '../post_form/edit_post_form';
 import PostFormContainer from '../post_form/post_form_container';
 import { withRouter } from 'react-router-dom';
 

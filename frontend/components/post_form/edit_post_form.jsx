@@ -8,7 +8,7 @@ class EditPostForm extends React.Component {
     this.state = {
       body: this.props.body,
       author_id: this.props.author_id,
-      post: false
+      // post: false
     };
     this.handleSubmit = this.handleSubmit.bind(this)
   }
@@ -25,10 +25,6 @@ class EditPostForm extends React.Component {
 
     console.log("really new post", post)
     this.props.createPost(post)
-      // .then(() => {
-      //   this.props.history.push("/feed")
-      //   console.log("prooooopppppsss", this.props)
-      // })
       .then(() => this.props.closeModal())
     // .then(this.setState({post: true}))
   }

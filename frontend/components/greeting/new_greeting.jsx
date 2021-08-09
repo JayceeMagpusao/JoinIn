@@ -12,10 +12,6 @@ class NewGreeting extends React.Component {
       body: '',
       author_id: this.props.author_id,
     };
-    console.log("proooppppsss", this.props.currentUser)
-    console.log("statetteetete", this.state)
-    console.log("statetteetete", this.props)
-    this.handleSubmit = this.handleSubmit.bind(this);
     this.logout = this.logout.bind(this);
     this.createPost = this.createPost.bind(this);
     this.deletePost = this.deletePost.bind(this);
@@ -27,14 +23,6 @@ class NewGreeting extends React.Component {
     return e => this.setState({
       [field]: e.currentTarget.value
     });
-  }
-
-  handleSubmit(e) {
-    e.preventDefault();
-    const user = Object.assign({}, this.state);
-    this.props.nameEmailForm(user);
-    this.props.history.push("/final-signup")
-    // console.log("testing stateteetetee", this.state)
   }
 
   logout(){
@@ -53,18 +41,6 @@ class NewGreeting extends React.Component {
     this.props.editPost(id, post);
   }
 
-  // renderErrors() {
-  //   return (
-  //     <ul>
-  //       {this.props.errors.map((error, i) => (
-  //         <li key={`error-${i}`}>
-  //           {error}
-  //         </li>
-  //       ))}
-  //     </ul>
-  //   );
-  // }
-
   render() {
     let posts = this.props.posts ? this.props.posts : [];
 
@@ -79,15 +55,13 @@ class NewGreeting extends React.Component {
           {
             posts.map ((post, index) => {
               return (
-                <div key={index} className="feed-box">
+                <div key={post.id} className="feed-box">
                   {post.body}
-                  {/* {console.log("inside state delete button", this.state)}
-                  {console.log("inside props delete button", this.props)} */}
                   {this.props.current_user_id === post.author_id ? 
-                    <button onClick={this.props.openModal('edit')} className="feed-post-edit">Edit</button>
+                    <button onClick={() => this.props.openModal('edit')} className="feed-post-edit">Edit</button>
                     : <br />}
                   {this.props.current_user_id === post.author_id ? 
-                    <button onClick={this.deletePost} className="feed-post-delete">Delete</button>
+                    <button onClick={() => this.props.deletePost(post.id)} className="feed-post-delete">Delete</button>
                     : <br />}
                   {/* <Modal /> */}
                 </div>
