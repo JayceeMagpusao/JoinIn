@@ -1,9 +1,9 @@
 import React from 'react';
-import LogoURL from '../../../app/assets/images/linkedin.png';
 import { Link } from 'react-router-dom';
 import { openModal } from '../../actions/modal_actions';
-import Modal from '../modal/modal';
 import { deletePost, editPost } from '../../actions/post_actions';
+import LogoURL from '../../../app/assets/images/linkedin.png';
+import Modal from '../modal/modal';
 
 class NewGreeting extends React.Component {
   constructor(props) {
@@ -50,7 +50,6 @@ class NewGreeting extends React.Component {
           <div>{`Hi, ${this.props.currentUser}!`}</div>
           <Modal />
           <button onClick={() => this.props.openModal('post')}>Post</button>
-          {/* {this.props.post} */}
           <button onClick={this.logout}>Logout</button>
           {
             posts.map ((post, index) => {
@@ -58,7 +57,7 @@ class NewGreeting extends React.Component {
                 <div key={post.id} className="feed-box">
                   {post.body}
                   {this.props.current_user_id === post.author_id ? 
-                    <button onClick={() => this.props.openModal('edit')} className="feed-post-edit">Edit</button>
+                    <button onClick={() => this.props.openModal('edit', post.id)} className="feed-post-edit">Edit</button>
                     : <br />}
                   {this.props.current_user_id === post.author_id ? 
                     <button onClick={() => this.props.deletePost(post.id)} className="feed-post-delete">Delete</button>

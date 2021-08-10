@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { closeModal } from ''
 import { createPost } from '../../actions/post_actions';
+import { closeModal } from '../../actions/modal_actions';
 import PostForm from './post_form';
 
 const mapStateToProps = (state) => {
@@ -12,7 +12,8 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  createPost: post => dispatch(createPost(post))
+  createPost: post => dispatch(createPost(post)),
+  closeModal: () => dispatch(closeModal())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostForm);

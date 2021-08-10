@@ -6,9 +6,8 @@ class EditPostForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      body: this.props.body,
-      author_id: this.props.author_id,
-      // post: false
+      body: props.post.body,
+      author_id: props.author_id,
     };
     this.handleSubmit = this.handleSubmit.bind(this)
   }
@@ -20,13 +19,12 @@ class EditPostForm extends React.Component {
   }
 
   handleSubmit(e) {
+    debugger
     e.preventDefault()
     let post = Object.assign({}, { body: this.state.body }, { author_id: this.state.author_id })
 
-    console.log("really new post", post)
-    this.props.createPost(post)
+    this.props.updatePost(post)
       .then(() => this.props.closeModal())
-    // .then(this.setState({post: true}))
   }
 
   render() {
@@ -37,11 +35,10 @@ class EditPostForm extends React.Component {
             value={this.state.body}
             onChange={this.update('body')} />
         </label>
-        <button>Create Post</button>
+        <button>Save</button>
       </form>
     )
   }
-
 }
 
 export default EditPostForm;

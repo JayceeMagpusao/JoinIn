@@ -22,21 +22,8 @@ class EmailSignupForm extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.nameEmailForm(user);
-    this.props.history.push("/final-signup")
-    // console.log("testing stateteetetee", this.state)
+    this.props.history.push("/final-signup");
   }
-
-  // renderErrors() {
-  //   return (
-  //     <ul>
-  //       {this.props.errors.map((error, i) => (
-  //         <li key={`error-${i}`}>
-  //           {error}
-  //         </li>
-  //       ))}
-  //     </ul>
-  //   );
-  // }
 
   render() {
     return (
@@ -51,8 +38,6 @@ class EmailSignupForm extends React.Component {
             Make the most of your professional life
           </label>
           <br />
-          {/* Please {this.props.formType} or {this.props.navLink}
-          {this.renderErrors()} */}
           <div className="login-form">
             <label className="email-label">Email
               <br />
@@ -71,22 +56,6 @@ class EmailSignupForm extends React.Component {
                 onChange={this.update('password')}
                 className="login-input" />
             </label>
-            <br />
-            {/* <label>First Name:
-            <input
-              type="text"
-              value={this.state.first_name}
-              onChange={this.update('first_name')}
-              className="login-input" />
-          </label>
-          <br/>
-          <label>Last Name:
-            <input
-              type="text"
-                value={this.state.last_name}
-                onChange={this.update('last_name')}
-              className="login-input" />
-          </label> */}
             <br />
             <button className="session-submit" onClick={this.handleSubmit}>{`Agree & Join`}</button>
             <div className="already-signed-up-box">

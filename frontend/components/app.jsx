@@ -12,12 +12,8 @@ import NewGreetingContainer from './greeting/new_greeting_container';
 import GreetingContainer from './greeting/greeting_container';
 import SignUpFormContainer from './session/signup_form_container';
 import LogInFormContainer from './session/login_form_container';
-// import SearchContainer from './search/search_container';
-// import BenchShowContainer from './bench_show/bench_show_container';
-import PostFormContainer from './post_form/post_form_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import LandingLoginContainer from './landing/landing_login_container';
-// import EmailSignupContainer from './session/email_signup_container';
 import StartSignupContainer from './session/email_signup_container';
 import FinalSignupContainer from './session/name_signup_container';
 

@@ -25,7 +25,6 @@ class EmailSignupForm extends React.Component {
     const user = Object.assign({}, this.state);
     this.props.processForm(user);
     this.props.history.push("/feed");
-    // console.log("testing stateteetetee", this.state)
   }
 
   renderErrors() {

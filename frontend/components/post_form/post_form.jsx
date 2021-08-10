@@ -23,7 +23,6 @@ class PostForm extends React.Component {
     e.preventDefault()
     let post = Object.assign({}, {body: this.state.body}, {author_id: this.state.author_id})
 
-    console.log("really new post", post)
     this.props.createPost(post)
     .then(() => this.props.closeModal())
   }
