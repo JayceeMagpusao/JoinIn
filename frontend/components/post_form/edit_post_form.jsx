@@ -19,10 +19,9 @@ class EditPostForm extends React.Component {
   }
 
   handleSubmit(e) {
-    debugger
     e.preventDefault()
     let post = Object.assign({}, { body: this.state.body }, { author_id: this.state.author_id })
-
+    console.log("i am inside handlesubmit", this.props)
     this.props.updatePost(post)
       .then(() => this.props.closeModal())
   }

@@ -8,7 +8,6 @@ class PostForm extends React.Component {
     this.state = {
       body: '',
       author_id: this.props.author_id,
-      post: false
     };
     this.handleSubmit = this.handleSubmit.bind(this)
   }
@@ -39,7 +38,6 @@ class PostForm extends React.Component {
       </form>
     )
   }
-
 }
 
 export default PostForm;

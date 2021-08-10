@@ -27,7 +27,7 @@ const App = () => (
     </header>
     <Switch>
       <ProtectedRoute exact path="/feed" component={NewGreetingContainer} />
-      {/* <ProtectedRoute exact path="/" component={GreetingContainer} /> */}
+      {/* <ProtectedRoute exact path="/" component={HomeContainer} /> */}
       <AuthRoute exact path="/landing" component={LandingLoginContainer} />
       {/* <AuthRoute exact path="/login" component={LogInFormContainer} /> */}
       <AuthRoute exact path="/start-signup" component={StartSignupContainer} />

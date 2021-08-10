@@ -62,7 +62,6 @@ class NewGreeting extends React.Component {
                   {this.props.current_user_id === post.author_id ? 
                     <button onClick={() => this.props.deletePost(post.id)} className="feed-post-delete">Delete</button>
                     : <br />}
-                  {/* <Modal /> */}
                 </div>
               )
             })
