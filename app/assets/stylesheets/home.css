@@ -1,0 +1,33 @@
+body {
+  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Fira Sans",Ubuntu,Oxygen,"Oxygen Sans",
+  Cantarell,"Droid Sans","Apple Color Emoji","Segoe UI Emoji","Segoe UI Emoji","Segoe UI Symbol","Lucida Grande",Helvetica,Arial,sans-serif;
+}
+
+.home-sign-in-form-container {
+  margin-left: 10vw;
+}
+
+.home-sign-in-joinin-logo-title  {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 3vw;
+  margin-top: 1vw;
+}
+
+.home-sign-in-joinin-logo {
+  display: flex;
+  font-size: 2vw;
+  font-weight: 700;
+  color: #0A66C2;
+}
+
+.home-sign-in-joinin-logo-image {
+  height: 2vw;
+  margin-top: 0.5vw;
+}
+.home-sign-in-container {
+  display: flex;
+}
+
+

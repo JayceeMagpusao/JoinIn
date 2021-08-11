@@ -11,7 +11,9 @@ class HomeGreetingForm extends React.Component {
       email: '',
       password: '',
     };
-    this.handleSubmit = this.handleSubmit.bind(this);
+    // this.handleSubmit = this.handleSubmit.bind(this);
+    this.signIn = this.signIn.bind(this);
+    this.joinNow = this.joinNow.bind(this);
   }
 
   update(field) {
@@ -20,10 +22,14 @@ class HomeGreetingForm extends React.Component {
     });
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    const user = Object.assign({}, this.state);
-    this.props.processForm(user);
+  signIn() {
+    let signIn = "/landing"
+    this.props.history.push(signIn)
+  }
+
+  joinNow() {
+    let joinNow = "/start-signup"
+    this.props.history.push(joinNow)
   }
 
   render() {
@@ -35,10 +41,10 @@ class HomeGreetingForm extends React.Component {
           </label>
           <div className="home-sign-in-container">
             <div className="home-sign-in-button-container">
-              <button className="home-login-button">Sign in</button>
+              <button className="home-login-button" onClick={this.signIn}>Sign in</button>
             </div>
             <div className="home-join-now-button-container">
-              <button className="home-join-now-button">Join Now</button>
+              <button className="home-join-now-button" onClick={this.joinNow}>Join Now</button>
             </div>
           </div>
         </div>
@@ -74,7 +80,7 @@ class HomeGreetingForm extends React.Component {
           <div className="get-started-media">
             <h1 className="get-started-title">Join your colleagues, classmates, and friends on JoinIn.</h1>
               <div className="get-started-now-button-container">
-                <button className="get-started-now-button" onClick={() => history.pushState("/landing")}>Get started</button>
+              <button className="get-started-now-button" onClick={this.joinNow}>Get started</button>
               </div>
           </div>
           <img src={GetStartedBackground} className="section-testimonials-image" />
