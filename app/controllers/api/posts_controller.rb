@@ -20,11 +20,10 @@ class Api::PostsController < ApplicationController
   end
 
   def update
-    # @post = selected_post
     @post = Post.find(params[:id])
 
-    if @post && @post.update_attributes(post_params)
-      render :show
+    if @post.author_id == current_user.id && @post.update(post_params)
+      render "api/posts/show"
     elsif !@post
       render json: ['Could not locate post'], status: 400
     else
@@ -38,8 +37,6 @@ class Api::PostsController < ApplicationController
   end
 
   def destroy
-    p 'I am in the destroy controller'
-    p params
     @post = Post.find(params[:id])
 
     if @post.destroy

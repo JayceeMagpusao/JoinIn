@@ -8,20 +8,21 @@ class EditPostForm extends React.Component {
     this.state = {
       body: props.post.body,
       author_id: props.author_id,
+      post_id: props.post.id
     };
     this.handleSubmit = this.handleSubmit.bind(this)
   }
-
+  
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
     })
   }
-
+  
   handleSubmit(e) {
     e.preventDefault()
-    let post = Object.assign({}, { body: this.state.body }, { author_id: this.state.author_id })
-    console.log("i am inside handlesubmit", this.props)
+    let post = Object.assign({}, { body: this.state.body }, 
+      { author_id: this.state.author_id }, { id: this.state.post_id })
     this.props.updatePost(post)
       .then(() => this.props.closeModal())
   }

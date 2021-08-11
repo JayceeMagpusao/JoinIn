@@ -13,7 +13,6 @@ class NewGreeting extends React.Component {
       author_id: this.props.author_id,
     };
     this.logout = this.logout.bind(this);
-    this.createPost = this.createPost.bind(this);
     this.deletePost = this.deletePost.bind(this);
   }
   
@@ -27,10 +26,6 @@ class NewGreeting extends React.Component {
 
   logout(){
     this.props.logout();
-  }
-
-  createPost(){
-    this.props.history.push("/feed")
   }
 
   deletePost(id){
