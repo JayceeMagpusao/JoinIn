@@ -16,12 +16,15 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import LandingLoginContainer from './landing/landing_login_container';
 import StartSignupContainer from './session/email_signup_container';
 import FinalSignupContainer from './session/name_signup_container';
+import NavBarContainer from './navigation/nav_bar_container';
 
 const App = () => (
   <div>
     <header>
-
     </header>
+    <div>
+      <NavBarContainer/>
+    </div>
     <Switch>
       <ProtectedRoute exact path="/feed" component={NewGreetingContainer} />
       <AuthRoute exact path="/" component={HomeContainer} />

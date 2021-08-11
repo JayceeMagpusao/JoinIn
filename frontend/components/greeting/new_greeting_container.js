@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { logout } from '../../actions/session_actions';
 import { fetchPosts, deletePost } from '../../actions/post_actions';
 import { openModal, closeModal } from '../../actions/modal_actions';
+import { createLike, deleteLike, fetchLikes } from '../../actions/likes_actions';
 import NewGreeting from './new_greeting';
 
 const mapStateToProps = (state) => ({
@@ -19,7 +20,10 @@ const mapDispatchToProps = dispatch => ({
     closeModal: () => dispatch(closeModal()),
     openModal: (modal, id) => dispatch(openModal(modal, id)),
     fetchPosts: () => dispatch(fetchPosts()),
-    deletePost: (id) => dispatch(deletePost(id))
+    deletePost: (id) => dispatch(deletePost(id)), 
+    createLike: (like) => dispatch(createLike(like)),
+    fetchLikes: () => dispatch(fetchLikes()),
+    deleteLike: (id) => dispatch(deleteLike(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewGreeting);

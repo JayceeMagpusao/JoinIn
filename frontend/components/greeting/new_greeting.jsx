@@ -14,6 +14,7 @@ class NewGreeting extends React.Component {
     };
     this.logout = this.logout.bind(this);
     this.deletePost = this.deletePost.bind(this);
+    this.createLike = this.createLike.bind(this);
   }
   
   componentDidMount() {this.props.fetchPosts()}
@@ -36,6 +37,13 @@ class NewGreeting extends React.Component {
     this.props.editPost(id, post);
   }
 
+  createLike(userId, postId){
+    // console.log("i am inside createlike", userId)
+    let like = {user_id: userId, post_id: postId}
+    console.log("i am inside createlike", like)
+    this.props.createLike(like)
+  }
+
   render() {
     let posts = this.props.posts ? this.props.posts : [];
 
@@ -51,6 +59,7 @@ class NewGreeting extends React.Component {
               return (
                 <div key={post.id} className="feed-box">
                   {post.body}
+                  <button onClick={() => this.createLike(this.state.author_id, post.id)}>Like</button>
                   {this.props.current_user_id === post.author_id ? 
                     <button onClick={() => this.props.openModal('edit', post.id)} className="feed-post-edit">Edit</button>
                     : <br />}
