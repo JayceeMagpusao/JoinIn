@@ -238,6 +238,11 @@ body {
   width: 10vw;
 }
 
+.get-started-now-button:hover {
+  background-color: #004182;
+  text-decoration: underline;
+}
+
 .get-started-title {
   font-size: 3.4rem;
   font-weight: 100;

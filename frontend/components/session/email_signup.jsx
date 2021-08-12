@@ -40,23 +40,23 @@ class EmailSignupForm extends React.Component {
           <br />
           <div className="login-form">
             <label className="email-label">Email
-              <br />
+              {/* <br /> */}
               <input
                 type="text"
                 value={this.state.email}
                 onChange={this.update('email')}
                 className="login-input" />
             </label>
-            <br />
+            {/* <br /> */}
             <label className="password-label">Password (6 or more characters)
-              <br />
+              {/* <br /> */}
               <input
                 type="password"
                 value={this.state.password}
                 onChange={this.update('password')}
                 className="login-input" />
             </label>
-            <br />
+            {/* <br /> */}
             <button className="session-submit" onClick={this.handleSubmit}>{`Agree & Join`}</button>
             <div className="already-signed-up-box">
               <label className="already-signed-up-text">Already on JoinIn?</label>

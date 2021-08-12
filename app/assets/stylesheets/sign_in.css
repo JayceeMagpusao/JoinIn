@@ -4,7 +4,6 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-
 }
 
 .sign-in-joinin-logo {
@@ -19,7 +18,8 @@
 .sign-in-joinin-logo-title {
   display: flex;
   flex-direction: row;
-  margin-bottom: 2%;
+  margin-bottom: 1vw;
+  margin-right: 18vw;
 }
 
 .sign-in-joinin-logo-image {
@@ -27,7 +27,7 @@
 }
 
 .sign-in-join-form {
-  width: 352px;
+  width: 25vw;
   -webkit-box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
   box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
   padding: 24px 32px 32px;
@@ -97,4 +97,12 @@
   padding: 0 16px 0 16px;
   border: none;
   background: solid;
+}
+
+.sign-in-password-input, .sign-in-email-input {
+  margin-bottom: 1vw;
+}
+
+.sign-in-submit:hover {
+  background-color: #004182;
 }
