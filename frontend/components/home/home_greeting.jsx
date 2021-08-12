@@ -40,11 +40,11 @@ class HomeGreetingForm extends React.Component {
             <img src={LogoURL} className="home-sign-in-joinin-logo-image" />
           </label>
           <div className="home-sign-in-container">
-            <div className="home-sign-in-button-container">
-              <button className="home-login-button" onClick={this.signIn}>Sign in</button>
-            </div>
             <div className="home-join-now-button-container">
               <button className="home-join-now-button" onClick={this.joinNow}>Join Now</button>
+            </div>
+            <div className="home-sign-in-button-container">
+              <button className="home-login-button" onClick={this.signIn}>Sign in</button>
             </div>
           </div>
         </div>
@@ -56,11 +56,10 @@ class HomeGreetingForm extends React.Component {
         </div>
         <div className="section-testimonials-container">
           <div className="section-testimonials-media">
-            <h1 className="section-testimonials-title">Conversations today could lead to opportunity tomorrow
+            <h1 className="section-testimonials-title">Conversations today could lead to opportunity tomorrow</h1>
               <p className="section-testimonials-content">Sending messages to people you know is a great way to strengthen relationships 
                 as you take the next step in your career
               </p>
-            </h1>
           </div>
           <img src={TestimonialsImage} className="section-testimonials-image" />
         </div>
@@ -69,21 +68,21 @@ class HomeGreetingForm extends React.Component {
             <iframe width="560" height="315" src="https://www.youtube.com/embed/EEikRQ58NwM" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
           </div>
           <div className="youtube-media-content">
-            <h1 className="youtube-media-title">Let's step forward
-              <p className="youtube-media-content">With our communities by our side, there's no telling where our next
+            <h1 className="youtube-media-title">Let's step forward</h1>
+              <p className="youtube-media-testimonial">With our communities by our side, there's no telling where our next
                 small steps could lead
               </p>
-            </h1>
           </div>
         </div>
         <div className="get-started-container">
           <div className="get-started-media">
             <h1 className="get-started-title">Join your colleagues, classmates, and friends on JoinIn.</h1>
-              <div className="get-started-now-button-container">
-              <button className="get-started-now-button" onClick={this.joinNow}>Get started</button>
+              <div className="get-started-now-button-box">
+                <div className="get-started-now-button-container">
+                  <button className="get-started-now-button" onClick={this.joinNow}>Get started</button>
+                </div>
               </div>
           </div>
-          <img src={GetStartedBackground} className="section-testimonials-image" />
         </div>
       </div>
     )
