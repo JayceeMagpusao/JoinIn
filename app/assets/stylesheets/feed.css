@@ -17,6 +17,11 @@
   border-radius: 8px;
 }
 
+.post-button-potrait-icon {
+  font-size: 1.7vw;
+  padding-left: 3%;
+}
+
 .new-greeting-user-label {
   font-weight: 700;
   color: #0A66C2;
@@ -42,17 +47,28 @@
   margin: 10px;
   text-align: left;
   cursor: pointer;
+  padding: 0 1vw;
 }
 
 .joinin-post-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   margin-top: 2vw;
   border-radius: 8px;
 }
 
 .joinin-post-button {
   border-radius: 24px;
+  margin-right: 5%;
+  width: 85%;
+  text-align: left;
+  background-color: #FFFFFF;
+  color: #868686;
+  padding-left: 3%;
+}
+
+.joinin-post-button:hover {
+  background-color: #EBEBEB;
 }
 
 .joinin-news-container {
@@ -72,7 +88,7 @@
 
 .joinin-news-container {
   background-color: #FFFFFF;
-  width: fit-content;
+  width: 80%;
   border-radius: 8px;
   border-color: #E0DFDC;
   color: #2D2D2D;
@@ -85,13 +101,29 @@
   font-size: 0.8vw;
 }
 
+.news-link-container {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 1vw;
+  align-content: center;
+}
+
 .news-link-container:hover {
   background-color: #EBEBEB;
+}
+
+.bullet-point {
+  font-size: 0.3vw;
+  padding-left: 0.5vw;
+  padding-top: 0.4vw;
+  padding-right: 0.3vw;
 }
 
 .joinin-news-container-label {
   font-weight: 550;
   font-size: 1.1vw;
+  padding-bottom: 1vw;
+  padding-left: 0.5vw;
 }
 
 .todays-top-courses-container {
@@ -100,4 +132,67 @@
   border-radius: 8px;
   border-color: #E0DFDC;
   color: #2D2D2D;
+  margin-top: 1vw;
+  width: 80%;
+}
+
+.learning-list-numbered {
+  padding-bottom: 0.8vw;
+}
+
+.learning-list-numbered:hover {
+  background-color: #EBEBEB;
+}
+
+.joinin-learning-title {
+  text-decoration: none;
+  color: #2D2D2D;
+  font-weight: 600;
+  font-size: 0.7vw;
+}
+
+.todays-top-courses-label {
+  font-weight: 550;
+  font-size: 1.1vw;
+  padding-bottom: 0.7vw;
+  padding-left: 0.5vw;
+}
+
+.show-more-joinin-learning-container {
+  display: flex;
+}
+
+.show-more-joinin-learning-container:hover {
+  background-color: #EBEBEB;
+}
+
+.arrow-icon {
+  font-size: 1vw;
+  color: #666666;
+}
+
+.show-more-joinin-learning-link {
+  text-decoration: none;
+  color: #7F7F7F;
+  padding-left: 12%;
+  padding-right: 1.5%;
+}
+
+.joinin-learning-author {
+  font-size: 0.7vw;
+  color: #7F7F7F;
+}
+
+.post-author-container {
+  display: flex;
+}
+
+.post-potrait-icon {
+  font-size: 4vw;
+}
+
+.post-button-container {
+  display: flex;
+  justify-content: space-between;
+  color: #0A66C2;
 }
