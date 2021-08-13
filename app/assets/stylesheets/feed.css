@@ -196,3 +196,11 @@
   justify-content: space-between;
   color: #0A66C2;
 }
+
+.edit-button-container:hover {
+  background-color: #EBEBEB;
+}
+
+.delete-button-container:hover {
+  background-color: #EBEBEB;
+}
