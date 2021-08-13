@@ -11,7 +11,7 @@ const postsReducer = (state = {}, action) => {
       const newPost = { [action.post.id]: action.post };
       return Object.assign({}, state, newPost);
     case REMOVE_POST:
-      delete nextState[action.id];
+      delete nextState[action.postId];
       return nextState;
     default:
       return state;

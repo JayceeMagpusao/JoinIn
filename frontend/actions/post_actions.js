@@ -9,18 +9,18 @@ export const receivePosts = posts => ({
   posts,
 });
 
-export const receivePost = ({ post }) => ({
+export const receivePost = post => ({
   type: RECEIVE_POST,
   post,
 });
 
-export const removePost = id => ({
+export const removePost = postId => ({
   type: REMOVE_POST,
-  id
+  postId,
 })
 
-export const fetchPosts = posts => dispatch => (
-  APIUtil.fetchPost(posts).then(posts => (
+export const fetchPosts = () => dispatch => (
+  APIUtil.fetchPosts().then(posts => (
     dispatch(receivePosts(posts))
   ))
 );
@@ -37,14 +37,13 @@ export const createPost = post => dispatch => (
   ))
 );
 
-export const updatePost = post => (
-  APIUtil.updatePost(post).then(updatedPost => (
-    dispatch(receivePost(updatedPost))
+export const updatePost = post => dispatch => (
+  APIUtil.updatePost(post)
+    .then(updatedPost => dispatch(receivePost(updatedPost)
   ))
 );
 
-export const deletePost = id => (
-  APIUtil.deletePost(deletePost).then(() => (
-    dispatch(deletePost(id))
-  ))
-)
+export const deletePost = postId => dispatch => (
+  APIUtil.deletePost(postId)
+    .then(() => dispatch(removePost(postId)))
+);

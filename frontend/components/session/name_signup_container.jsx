@@ -1,18 +1,14 @@
-import { connect } from 'react-redux';
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { signup } from '../../actions/session_actions';
 import NameSignForm from './name_signup';
 
 const mapStateToProps = ( state ) => {
-  // console.log('errrrrrrrrrrrrrrrrrors', errors)
-  console.log('errrrrrrrrrrrr', state)
   return {
     errors: state.errors.session,
     email: state.session.email.email,
     password: state.session.email.password,
-    // formType: 'signup',
-    // navLink: <Link to="/landing">Log In</Link>,
   };
 };
 

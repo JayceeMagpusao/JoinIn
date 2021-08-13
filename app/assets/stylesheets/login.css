@@ -1,26 +1,26 @@
 body {
   font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Fira Sans",Ubuntu,Oxygen,"Oxygen Sans",
   Cantarell,"Droid Sans","Apple Color Emoji","Segoe UI Emoji","Segoe UI Emoji","Segoe UI Symbol","Lucida Grande",Helvetica,Arial,sans-serif;
-  
 }
 
 .login_form-container {
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin: auto;
+  padding-top: 2vw;
+  padding-bottom: 38vw;
+  background-color: #F3F2EF;
 }
 
 .login-form-box {
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 400px;
-  /* margin: auto; */
 }
 
 .login-input {
   width: 100%;
+  margin-bottom: 1vw;
 }
 
 .email-label, .password-label {
@@ -37,19 +37,16 @@ body {
   border-radius: 24px;
   background-color: #0A66C2;
   color: #FFFFF5;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   display: inline-block;
   cursor: pointer;
-  line-height: 40px;
   overflow: hidden;
-  outline-width: 2px;
   position: relative;
   text-align: center;
   text-decoration: none;
   font-weight: 500;
-  padding: 0 16px 0 16px;
+  padding: 0 1vw 0 1vw;
   border: none;
-  background: solid;
 }
 
 .session-submit:hover {
@@ -61,26 +58,38 @@ body {
   font-weight: 600;
   color: #0A66C2;
   font-family: sans-serif;
-    display: flex;
-      flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .joinin-logo-title {
   display: flex;
   align-items: center;
   flex-direction: row;
-  width: 500px;
+  width: 10vw;
 }
 
 .login-subtitle {
   color: #000;
-  font-size: 4vh;
-  font-weight: 375;
-  padding: 24px 16px
+  font-size: 2vw;
+  font-weight: 450;
+  margin-top: 1vw;
+  width: 35vw;
 }
 
 .login-logo-image {
   object-fit: contain;
-  height: 45px;
-  margin: 0px;
+  height: 1.9vw;
+  margin-top: 0.4vw;
+}
+
+.login-form {
+  width: 27vw;
+  padding: 2vw;
+  background-color: #FFFFFF;
+}
+
+.already-signed-up-box {
+  margin-top: 1vw;
+  padding-left: 7vw;
 }

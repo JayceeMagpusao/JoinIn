@@ -1,25 +1,29 @@
-import { connect } from 'react-redux';
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { logout } from '../../actions/session_actions';
-import NewGreeting from './new_greeting';
+import { fetchPosts, deletePost } from '../../actions/post_actions';
 import { openModal, closeModal } from '../../actions/modal_actions';
+import { createLike, deleteLike, fetchLikes } from '../../actions/likes_actions';
+import NewGreeting from './new_greeting';
 
-const mapStateToProps = (state) => {
-  return {
+const mapStateToProps = (state) => ({
     errors: state.errors.session,
     currentUser: state.entities.users[state.session.id].first_name,
     author_id: state.session.id,
-  };
-};
+    posts: Object.values(state.entities.posts),
+    current_user_id: state.entities.users[state.session.id].id,
+});
 
-const mapDispatchToProps = dispatch => {
-  return {
+const mapDispatchToProps = dispatch => ({
     logout: () => dispatch(logout()),
-    // post: (<button onClick={() => openModal('post')}>Post</button>),
     closeModal: () => dispatch(closeModal()),
-    openModal: (modal) => dispatch(openModal(modal))
-  };
-};
+    openModal: (modal, id) => dispatch(openModal(modal, id)),
+    fetchPosts: () => dispatch(fetchPosts()),
+    deletePost: (id) => dispatch(deletePost(id)), 
+    createLike: (like) => dispatch(createLike(like)),
+    fetchLikes: () => dispatch(fetchLikes()),
+    deleteLike: (id) => dispatch(deleteLike(id)),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewGreeting);

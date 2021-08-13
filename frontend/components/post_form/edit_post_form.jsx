@@ -2,28 +2,29 @@ import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { withRouter } from 'react-router-dom';
 
-class PostForm extends React.Component {
+class EditPostForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      body: '',
-      author_id: this.props.author_id,
+      body: props.post.body,
+      author_id: props.author_id,
+      post_id: props.post.id
     };
     this.handleSubmit = this.handleSubmit.bind(this)
   }
-
+  
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
     })
   }
-
+  
   handleSubmit(e) {
     e.preventDefault()
-    let post = Object.assign({}, {body: this.state.body}, {author_id: this.state.author_id})
-
-    this.props.createPost(post)
-    .then(() => this.props.closeModal())
+    let post = Object.assign({}, { body: this.state.body }, 
+      { author_id: this.state.author_id }, { id: this.state.post_id })
+    this.props.updatePost(post)
+      .then(() => this.props.closeModal())
   }
 
   render() {
@@ -34,10 +35,10 @@ class PostForm extends React.Component {
             value={this.state.body}
             onChange={this.update('body')} />
         </label>
-        <button>Create Post</button>
+        <button>Save</button>
       </form>
     )
   }
 }
 
-export default PostForm;
+export default EditPostForm;

@@ -1,22 +1,23 @@
 import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
-// import LoginFormContainer from '../session_form/login_form_container';
-// import SignupFormContainer from '../session_form/signup_form_container';
-import PostFormContainer from '../post_form/post_form_container';
+import CreatePostFormContainer from '../post_form/create_post_form_container';
+import EditPostFormContainer from '../post_form/edit_post_form_container';
+import { withRouter } from 'react-router-dom';
 
-function Modal({ modal, closeModal }) {
+function Modal({ modal, closeModal, allPosts }) {
   if (!modal) {
     return null;
   }
   let component;
-  switch (modal) {
+  switch (modal.type) {
     case 'post':
-      component = <PostFormContainer />;
+      component = <CreatePostFormContainer />;
       break;
-    // case 'signup':
-    //   component = <SignupFormContainer />;
-    //   break;
+    case 'edit':
+      let post = allPosts[modal.id]
+      component = <EditPostFormContainer post={post} />;
+      break;
     // case 'login':
     //   component = <LoginFormContainer />;
     //   break;
@@ -32,16 +33,13 @@ function Modal({ modal, closeModal }) {
   );
 }
 
-const mapStateToProps = state => {
-  return {
-    modal: state.ui.modal
-  };
-};
+const mapStateToProps = state => ({
+  modal: state.ui.modal,
+  allPosts: state.entities.posts
+});
 
-const mapDispatchToProps = dispatch => {
-  return {
-    closeModal: () => dispatch(closeModal())
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  closeModal: () => dispatch(closeModal())
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Modal);

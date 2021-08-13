@@ -24,8 +24,7 @@ class EmailSignupForm extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user);
-    this.props.history.push("/");
-    // console.log("testing stateteetetee", this.state)
+    this.props.history.push("/feed");
   }
 
   renderErrors() {
@@ -52,24 +51,8 @@ class EmailSignupForm extends React.Component {
           <label className="login-subtitle">
             Make the most of your professional life
           </label>
-          {/* Please {this.props.formType} or {this.props.navLink} */}
           {this.renderErrors()}
           <div className="login-form">
-            {/* <label>Email:
-              <input
-                type="text"
-                value={this.state.email}
-                onChange={this.update('email')}
-                className="login-input" />
-            </label>
-            <br />
-            <label>Password:
-              <input
-                type="password"
-                value={this.state.password}
-                onChange={this.update('password')}
-                className="login-input" />
-            </label> */}
             <br />
           <label>First Name:
             <input

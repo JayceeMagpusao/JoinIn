@@ -1,8 +1,8 @@
 class Api::PostsController < ApplicationController
   def index
-    posts = Post.all
+    @posts = Post.all
 
-    render json: posts
+    render "api/posts/index"
   end
 
   def show
@@ -13,20 +13,18 @@ class Api::PostsController < ApplicationController
     @post = Post.new(post_params)
 
     if @post.save
-      # render "api/posts/show"
-      # render json: ["hello"]
-      render :show
+      render "api/posts/show"
     else
       render json: @post.errors.full_messages, status: 422
     end
   end
 
   def update
-    @post = selected_post
+    @post = Post.find(params[:id])
 
-    if @post && @post.update_attributes(post_params)
-      render :show
-    elsif !@chirp
+    if @post.author_id == current_user.id && @post.update(post_params)
+      render "api/posts/show"
+    elsif !@post
       render json: ['Could not locate post'], status: 400
     else
       render json: @post.errors.full_messages, status: 401
@@ -39,10 +37,9 @@ class Api::PostsController < ApplicationController
   end
 
   def destroy
-    @post = selected_post
+    @post = Post.find(params[:id])
 
-    if @post
-      @post.destroy
+    if @post.destroy
       render :show
     else
       render ['Post could not be found']
@@ -50,9 +47,9 @@ class Api::PostsController < ApplicationController
   end
 
   private
-  def selected_post
-    Post.find_by(params[:id])
-  end
+  # def selected_post
+  #   Post.find_by(params[:id])
+  # end
 
   def post_params
     params.require(:post).permit(:body, :author_id)
