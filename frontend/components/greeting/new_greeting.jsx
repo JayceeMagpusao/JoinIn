@@ -45,6 +45,12 @@ class NewGreeting extends React.Component {
     this.props.createLike(like)
   }
 
+  deleteLike(userId, postId){
+    let like = {user_id: userId, post_id: postId}
+    console.log("i am inside deletelike", like)
+    this.props.deleteLike(like)
+  }
+
   render() {
     let posts = this.props.posts ? this.props.posts : [];
 
@@ -64,7 +70,7 @@ class NewGreeting extends React.Component {
               <button onClick={() => this.props.openModal('post')} className="joinin-post-button">Start a post</button>
             </div>
             {
-              posts.map ((post, index) => {
+              posts.reverse().map ((post, index) => {
                 return (
                   <div key={post.id} className="feed-box">
                     <div className="post-potrait-icon">

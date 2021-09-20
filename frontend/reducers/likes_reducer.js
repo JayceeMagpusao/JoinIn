@@ -8,7 +8,6 @@ const LikesReducer = (state = {}, action) => {
     case RECEIVE_LIKES:
       return action.likes;
     case RECEIVE_LIKE:
-      debugger
       const newLike = { [action.like.id]: action.like };
       return Object.assign({}, state, newLike);
     case REMOVE_LIKE:
