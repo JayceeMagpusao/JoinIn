@@ -4,7 +4,7 @@ class Api::LikesController < ApplicationController
 
     if @like.save
       # render "api/posts/show"
-      # render "api/posts/index"
+      # render "api/likes/index"
       render json: {like: @like}
     else
       render json: @post.errors.full_messages, status: 422
@@ -24,8 +24,8 @@ class Api::LikesController < ApplicationController
   def index
     @likes = Like.all
 
-    render json: {likes: @likes}
-    # render "api/posts/index"
+    # render json: {likes: @likes}
+    render "api/likes/index"
   end
 
   private

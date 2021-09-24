@@ -1,12 +1,23 @@
 class Api::PostsController < ApplicationController
   def index
     @posts = Post.all
+    @likeCounter = Like.likeCounter
+    @commentCounter = Comment.commentCounter
 
-    render "api/posts/index"
+    render json: { posts: @posts, likeCounter: @likeCounter, commentCounter: @commentCounter }
+    # render "api/posts/index"
   end
 
   def show
-    @posts = Post.find(params[:id])
+    @post = Post.find(params[:id])
+    @likes = @post.likes
+    @comments = @post.comments
+    
+    if @post
+      render json: { post: @post, likes: @likes, comments: @comments }
+    else
+      render json: ['Could not locate post'], status: 400
+    end
   end
 
   def create

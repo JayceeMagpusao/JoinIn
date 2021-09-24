@@ -31,10 +31,16 @@ export const fetchLike = id => dispatch => (
   ))
 );
 
+// export const createLike = like => dispatch => (
+//   APIUtil.createLike(like).then(createdLike => (
+//     dispatch(receiveLike(createdLike))
+//     ))
+// );
+
 export const createLike = like => dispatch => (
   APIUtil.createLike(like).then(createdLike => (
     dispatch(receiveLike(createdLike))
-  ))
+    ))
 );
 
 export const deleteLike = likeId => dispatch => (

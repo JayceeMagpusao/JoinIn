@@ -6,6 +6,8 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token
 
   has_many :posts
+  has_many :likes
+  has_many :comments
 
   attr_reader :password
 
