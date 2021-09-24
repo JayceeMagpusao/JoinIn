@@ -20,11 +20,6 @@ export const removePost = postId => ({
   postId,
 });
 
-export const receiveComment = ({ comment }) => ({
-  type: RECEIVE_COMMENT,
-  review
-});
-
 export const fetchPosts = () => dispatch => (
   APIUtil.fetchPosts().then(posts => (
     dispatch(receivePosts(posts))

@@ -41,14 +41,47 @@ class NewGreeting extends React.Component {
 
   createLike(userId, postId){
     let like = {user_id: userId, post_id: postId}
-    console.log("i am inside createlike", like)
+    // console.log("i am inside createlike", like)
     this.props.createLike(like)
+  }
+
+  deleteLike(userId, postId){
+    let like = {user_id: userId, post_id: postId}
+    // console.log("i am inside deletelike", like)
+    this.props.deleteLike(like)
   }
 
   render() {
     let posts = this.props.posts ? this.props.posts : [];
+    let likeCounter = this.props.likeCounter ? this.props.likeCounter : [];
+    let commentCounter = this.props.commentCounter ? this.props.commentCounter : [];
+    let counter = "counter";
 
-    if (posts.length !== 0 && Array.isArray(posts)){
+    // console.log("i am in the props", posts)
+    // console.log("i am in the props", likes)
+    if (posts.length !== 0 && likeCounter.length !==0 && commentCounter.length !== 0 
+      && Array.isArray(posts) && Array.isArray(likeCounter) && Array.isArray(commentCounter) ){
+      
+      let postsWithLikes = []
+
+      for (let i = 0; i < likeCounter.length; i++) {
+        let like = likeCounter[i];
+        
+        for (let j = 0; j < posts.length; j++) {
+          let post = posts[j]
+          if (post[counter] === undefined) {
+            // console.log("i am post[times]", post[times])
+            post[counter] = 0
+          } 
+          if (post.id === like.post_id) {
+            // console.log("i am in the render for loop", like.weird)
+            // console.log("i am in the render for loop", post)
+            post[counter] = like.counter
+          }
+        }
+        // console.log("after for loops", posts)
+      }
+
       return (
         <div className="new-greeting">
           <div className="new-greeting-container">
@@ -64,7 +97,7 @@ class NewGreeting extends React.Component {
               <button onClick={() => this.props.openModal('post')} className="joinin-post-button">Start a post</button>
             </div>
             {
-              posts.map ((post, index) => {
+              posts.reverse().map ((post, index) => {
                 return (
                   <div key={post.id} className="feed-box">
                     <div className="post-potrait-icon">
@@ -77,6 +110,9 @@ class NewGreeting extends React.Component {
                       <div className="post-like-container">
                         <div onClick={() => this.createLike(this.state.author_id, post.id)} className="post-like-button">
                           <FontAwesomeIcon icon={faThumbsUp} />
+                        </div>
+                        <div className="post-like-counter">
+                          {post.counter}
                         </div>
                       </div>
                       <div className="edit-delete-container">

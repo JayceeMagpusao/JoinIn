@@ -11,8 +11,10 @@ const mapStateToProps = (state) => ({
     errors: state.errors.session,
     currentUser: state.entities.users[state.session.id].first_name,
     author_id: state.session.id,
-    posts: Object.values(state.entities.posts),
+    posts: state.entities.posts.posts,
     current_user_id: state.entities.users[state.session.id].id,
+    likeCounter: state.entities.posts.likeCounter,
+    commentCounter: state.entities.posts.commentCounter
 });
 
 const mapDispatchToProps = dispatch => ({
