@@ -1,4 +1,5 @@
 import React from 'react';
+import { faCircle, faPortrait, faThumbsUp, faPencilAlt, faTrashAlt, faEllipsisH, faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons'
 
 class NavBar extends React.Component {
 
