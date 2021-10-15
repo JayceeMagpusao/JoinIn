@@ -6,9 +6,11 @@ import LogoURL from '../../../app/assets/images/linkedin.png';
 import Modal from '../modal/modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faPortrait, faThumbsUp, faPencilAlt, faTrashAlt, faEllipsisH, faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons'
+import { fetchComments } from '../../util/comment_api_util';
 
 class NewGreeting extends React.Component {
   constructor(props) {
+    console.log("i am in the props", props)
     super(props);
     this.state = {
       body: '',
@@ -19,7 +21,7 @@ class NewGreeting extends React.Component {
     this.createLike = this.createLike.bind(this);
   }
   
-  componentDidMount() {this.props.fetchPosts()}
+  componentDidMount() {this.props.fetchPosts(), this.props.fetchComments(), this.props.fetchLikes()}
 
   update(field) {
     return e => this.setState({
@@ -53,6 +55,7 @@ class NewGreeting extends React.Component {
 
   render() {
     let posts = this.props.posts ? this.props.posts : [];
+    let comments = this.props.comments ? this.props.comments : null;
     let likeCounter = this.props.likeCounter ? this.props.likeCounter : [];
     let commentCounter = this.props.commentCounter ? this.props.commentCounter : [];
     let likeCount = "likeCount";
@@ -154,9 +157,9 @@ class NewGreeting extends React.Component {
                         </div>
                       </div>
                     </div>
-                    <div className="comments-container">
-                      
-                    </div>
+                    {/* <div className="comments-container">
+                      {comments.map()}
+                    </div> */}
                   </div>
                 )
               })
