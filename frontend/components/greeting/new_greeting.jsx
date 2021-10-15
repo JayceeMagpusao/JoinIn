@@ -55,31 +55,48 @@ class NewGreeting extends React.Component {
     let posts = this.props.posts ? this.props.posts : [];
     let likeCounter = this.props.likeCounter ? this.props.likeCounter : [];
     let commentCounter = this.props.commentCounter ? this.props.commentCounter : [];
-    let counter = "counter";
+    let likeCount = "likeCount";
+    let commentCount = "commentCount"
 
     // console.log("i am in the props", posts)
     // console.log("i am in the props", likes)
     if (posts.length !== 0 && likeCounter.length !==0 && commentCounter.length !== 0 
       && Array.isArray(posts) && Array.isArray(likeCounter) && Array.isArray(commentCounter) ){
       
-      let postsWithLikes = []
+      // let postsWithLikes = []
 
       for (let i = 0; i < likeCounter.length; i++) {
         let like = likeCounter[i];
         
         for (let j = 0; j < posts.length; j++) {
           let post = posts[j]
-          if (post[counter] === undefined) {
+
+          if (post[likeCount] === undefined ) {
             // console.log("i am post[times]", post[times])
-            post[counter] = 0
+            post[likeCount] = 0
           } 
           if (post.id === like.post_id) {
             // console.log("i am in the render for loop", like.weird)
             // console.log("i am in the render for loop", post)
-            post[counter] = like.counter
+            post[likeCount] = like.counter
           }
         }
         // console.log("after for loops", posts)
+      }
+
+      for (let k = 0; k < commentCounter.length; k++){
+        let comment = commentCounter[k];
+
+        for (let l = 0; l < posts.length; l++){
+          let post = posts[l];
+
+          if (post[commentCount] === undefined) {
+            post[commentCount] = 0
+          }
+          if (post.id === comment.post_id){
+            post[commentCount] = comment.counter
+          }
+        }
       }
 
       return (
@@ -112,8 +129,11 @@ class NewGreeting extends React.Component {
                           <FontAwesomeIcon icon={faThumbsUp} />
                         </div>
                         <div className="post-like-counter">
-                          {post.counter}
+                          {post.likeCount}
                         </div>
+                        <div className="post-comment-counter">
+                          {post.commentCount}
+                        </div>                        
                       </div>
                       <div className="edit-delete-container">
                         <div className="edit-button-container">
@@ -133,6 +153,9 @@ class NewGreeting extends React.Component {
                             : <br />}
                         </div>
                       </div>
+                    </div>
+                    <div className="comments-container">
+                      
                     </div>
                   </div>
                 )

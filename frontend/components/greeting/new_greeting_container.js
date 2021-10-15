@@ -30,6 +30,7 @@ const mapDispatchToProps = dispatch => ({
     deleteLike: (id) => dispatch(deleteLike(id)),
     fetchComments: () => dispatch(fetchComments()),
     deleteComment: (id) => dispatch(deleteComment(id)),
+    createComment: (comment) => dispatch(createComment(comment))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewGreeting);
