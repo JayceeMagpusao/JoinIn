@@ -10,7 +10,6 @@ import { fetchComments } from '../../util/comment_api_util';
 
 class NewGreeting extends React.Component {
   constructor(props) {
-    console.log("i am in the props", props)
     super(props);
     this.state = {
       body: '',
@@ -55,19 +54,23 @@ class NewGreeting extends React.Component {
 
   render() {
     let posts = this.props.posts ? this.props.posts : [];
-    let comments = this.props.comments ? this.props.comments : null;
+    let comments = this.props.comments ? this.props.comments : [];
     let likeCounter = this.props.likeCounter ? this.props.likeCounter : [];
     let commentCounter = this.props.commentCounter ? this.props.commentCounter : [];
     let likeCount = "likeCount";
-    let commentCount = "commentCount"
+    let commentCount = "commentCount";
+    let commentPostId = "post_id";
+    let commentBody = "commentBody";
+    let commentId = "commentId";
+    let commentPostAuthorId = "commentPostAuthorId";
 
-    // console.log("i am in the props", posts)
+    // console.log("i am in the render", comments)
     // console.log("i am in the props", likes)
     if (posts.length !== 0 && likeCounter.length !==0 && commentCounter.length !== 0 
       && Array.isArray(posts) && Array.isArray(likeCounter) && Array.isArray(commentCounter) ){
       
       // let postsWithLikes = []
-
+      
       for (let i = 0; i < likeCounter.length; i++) {
         let like = likeCounter[i];
         
@@ -87,17 +90,41 @@ class NewGreeting extends React.Component {
         // console.log("after for loops", posts)
       }
 
-      for (let k = 0; k < commentCounter.length; k++){
+      for (let k = 0; k < commentCounter.length; k++) {
         let comment = commentCounter[k];
-
-        for (let l = 0; l < posts.length; l++){
+        
+        for (let l = 0; l < posts.length; l++) {
           let post = posts[l];
-
+          
           if (post[commentCount] === undefined) {
             post[commentCount] = 0
           }
-          if (post.id === comment.post_id){
+          if (post.id === comment.post_id) {
             post[commentCount] = comment.counter
+          }
+        }
+      }
+      
+      for (let m = 0; m < comments.length; m++) {
+        let comments = comments[m];
+        console.log("i am in the comment loop", comments)
+        
+        for (let n = 0; n < posts.length; n++) {
+          let post = posts[n];
+          
+          if (post.id !== comments.commentPostId) {
+            console.log("i am in the if post loop", post)
+            post[commentBody] = "bye";
+            post[commentId] ="bye";
+            post[commentPostAuthorId] = "bye";
+            post[commentPostId] = "bye";
+          }
+          if (post.id === comments.commentPostId) {
+            console.log("i am in the comments loop", comments)
+            post[commentBody] = comments.body;
+            post[commentId] = comments.id;
+            post[commentPostAuthorId] = comments.post_author_id;
+            post[commentPostId] = comments.post_id;
           }
         }
       }
@@ -157,9 +184,11 @@ class NewGreeting extends React.Component {
                         </div>
                       </div>
                     </div>
-                    {/* <div className="comments-container">
-                      {comments.map()}
-                    </div> */}
+                    <div className="comments-container">
+                      <div className="comments-body">
+                        {post.commentBody}
+                      </div>
+                    </div>
                   </div>
                 )
               })
