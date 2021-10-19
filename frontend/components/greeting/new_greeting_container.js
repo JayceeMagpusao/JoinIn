@@ -8,17 +8,22 @@ import { createLike, deleteLike, fetchLikes } from '../../actions/likes_actions'
 import { createComment, fetchComments, deleteComment } from '../../actions/comments_actions';
 import NewGreeting from './new_greeting';
 
-const mapStateToProps = (state) => ({
-    errors: state.errors.session,
-    currentUser: state.entities.users[state.session.id].first_name,
-    author_id: state.session.id,
-    posts: state.entities.posts.posts,
-    current_user_id: state.entities.users[state.session.id].id,
-    likeCounter: state.entities.posts.likeCounter,
-    commentCounter: state.entities.posts.commentCounter,
-    comments: state.entities.comments,
-    commentPostId: state.entities.comments.post_id
-});
+const mapStateToProps = (state) => {
+
+    let comments = Object.values(state.entities.comments);
+
+    return ({
+        errors: state.errors.session,
+        currentUser: state.entities.users[state.session.id].first_name,
+        author_id: state.session.id,
+        posts: state.entities.posts.posts,
+        current_user_id: state.entities.users[state.session.id].id,
+        likeCounter: state.entities.posts.likeCounter,
+        commentCounter: state.entities.posts.commentCounter,
+        comments: comments,
+        commentPostId: state.entities.comments.post_id
+    })
+};
 
 const mapDispatchToProps = dispatch => ({
     logout: () => dispatch(logout()),

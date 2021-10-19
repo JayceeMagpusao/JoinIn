@@ -55,6 +55,7 @@ class NewGreeting extends React.Component {
   render() {
     let posts = this.props.posts ? this.props.posts : [];
     let comments = this.props.comments ? this.props.comments : [];
+    let commentsArray = Object.values(comments);
     let likeCounter = this.props.likeCounter ? this.props.likeCounter : [];
     let commentCounter = this.props.commentCounter ? this.props.commentCounter : [];
     let likeCount = "likeCount";
@@ -63,9 +64,10 @@ class NewGreeting extends React.Component {
     let commentBody = "commentBody";
     let commentId = "commentId";
     let commentPostAuthorId = "commentPostAuthorId";
+    console.log("i am in the render comments", commentsArray)
 
-    // console.log("i am in the render", comments)
-    // console.log("i am in the props", likes)
+    
+    console.log("i am in the props", posts)
     if (posts.length !== 0 && likeCounter.length !==0 && commentCounter.length !== 0 
       && Array.isArray(posts) && Array.isArray(likeCounter) && Array.isArray(commentCounter) ){
       
@@ -89,7 +91,7 @@ class NewGreeting extends React.Component {
         }
         // console.log("after for loops", posts)
       }
-
+    
       for (let k = 0; k < commentCounter.length; k++) {
         let comment = commentCounter[k];
         
@@ -107,7 +109,7 @@ class NewGreeting extends React.Component {
       
       for (let m = 0; m < comments.length; m++) {
         let comments = comments[m];
-        console.log("i am in the comment loop", comments)
+        // console.log("i am in the comment loop", comments)
         
         for (let n = 0; n < posts.length; n++) {
           let post = posts[n];
