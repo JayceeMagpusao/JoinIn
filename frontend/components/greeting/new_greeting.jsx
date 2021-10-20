@@ -64,10 +64,11 @@ class NewGreeting extends React.Component {
     let commentBody = "commentBody";
     let commentId = "commentId";
     let commentPostAuthorId = "commentPostAuthorId";
-    console.log("i am in the render comments", commentsArray)
+    console.log("i am in the render comments", comments)
 
     
-    console.log("i am in the props", posts)
+    console.log("i am in the render posts", posts)
+    
     if (posts.length !== 0 && likeCounter.length !==0 && commentCounter.length !== 0 
       && Array.isArray(posts) && Array.isArray(likeCounter) && Array.isArray(commentCounter) ){
       
@@ -75,7 +76,8 @@ class NewGreeting extends React.Component {
       
       for (let i = 0; i < likeCounter.length; i++) {
         let like = likeCounter[i];
-        
+        // console.log("i am in the likeCouner loop", likeCounter)
+
         for (let j = 0; j < posts.length; j++) {
           let post = posts[j]
 
@@ -108,27 +110,27 @@ class NewGreeting extends React.Component {
       }
       
       for (let m = 0; m < comments.length; m++) {
-        let comments = comments[m];
-        // console.log("i am in the comment loop", comments)
+        let commentsForPost = comments[m];
+        console.log("i am in the comment loop", commentsForPost)
         
-        for (let n = 0; n < posts.length; n++) {
-          let post = posts[n];
+      //   for (let n = 0; n < posts.length; n++) {
+      //     let post = posts[n];
           
-          if (post.id !== comments.commentPostId) {
-            console.log("i am in the if post loop", post)
-            post[commentBody] = "bye";
-            post[commentId] ="bye";
-            post[commentPostAuthorId] = "bye";
-            post[commentPostId] = "bye";
-          }
-          if (post.id === comments.commentPostId) {
-            console.log("i am in the comments loop", comments)
-            post[commentBody] = comments.body;
-            post[commentId] = comments.id;
-            post[commentPostAuthorId] = comments.post_author_id;
-            post[commentPostId] = comments.post_id;
-          }
-        }
+      //     if (post.id !== comments.commentPostId) {
+      //       console.log("i am in the if post loop", post)
+      //       post[commentBody] = "bye";
+      //       post[commentId] ="bye";
+      //       post[commentPostAuthorId] = "bye";
+      //       post[commentPostId] = "bye";
+      //     }
+      //     if (post.id === comments.commentPostId) {
+      //       console.log("i am in the comments loop", comments)
+      //       post[commentBody] = comments.body;
+      //       post[commentId] = comments.id;
+      //       post[commentPostAuthorId] = comments.post_author_id;
+      //       post[commentPostId] = comments.post_id;
+      //     }
+      //   }
       }
 
       return (
@@ -186,11 +188,11 @@ class NewGreeting extends React.Component {
                         </div>
                       </div>
                     </div>
-                    <div className="comments-container">
+                    {/* <div className="comments-container">
                       <div className="comments-body">
                         {post.commentBody}
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 )
               })
