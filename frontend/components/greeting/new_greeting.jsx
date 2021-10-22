@@ -111,26 +111,31 @@ class NewGreeting extends React.Component {
       
       for (let m = 0; m < comments.length; m++) {
         let commentsForPost = comments[m];
-        console.log("i am in the comment loop", commentsForPost)
+        // console.log("i am in the comments loop", commentsForPost)
         
-      //   for (let n = 0; n < posts.length; n++) {
-      //     let post = posts[n];
+        for (let n = 0; n < posts.length; n++) {
+          let post = posts[n];
           
-      //     if (post.id !== comments.commentPostId) {
-      //       console.log("i am in the if post loop", post)
-      //       post[commentBody] = "bye";
-      //       post[commentId] ="bye";
-      //       post[commentPostAuthorId] = "bye";
-      //       post[commentPostId] = "bye";
-      //     }
-      //     if (post.id === comments.commentPostId) {
-      //       console.log("i am in the comments loop", comments)
-      //       post[commentBody] = comments.body;
-      //       post[commentId] = comments.id;
-      //       post[commentPostAuthorId] = comments.post_author_id;
-      //       post[commentPostId] = comments.post_id;
-      //     }
-      //   }
+          if (post.id === commentsForPost.post_id) {
+            // console.log("i am in the comments loop", comments)
+            post[commentBody] = commentsForPost.body;
+            // post[commentId] = commentsForPost.id;
+            // post[commentPostAuthorId] = commentsForPost.post_author_id;
+            // post[commentPostId] = commentsForPost.post_id;
+            // post[commentBody] = "hello";
+            // post[commentId] ="hello";
+            // post[commentPostAuthorId] = "hello";
+            // post[commentPostId] = "hello";
+          }
+          if (post.id !== commentsForPost.post_id) {
+            // console.log("i am in the if commentsforpost.id loop", commentsForPost.post_id)
+            // console.log("i am in the if post.id loop", post.id, post.body)
+            post[commentBody] = "bye";
+            post[commentId] ="bye";
+            post[commentPostAuthorId] = "bye";
+            post[commentPostId] = "bye";
+          }
+        }
       }
 
       return (
@@ -188,11 +193,11 @@ class NewGreeting extends React.Component {
                         </div>
                       </div>
                     </div>
-                    {/* <div className="comments-container">
+                    <div className="comments-container">
                       <div className="comments-body">
                         {post.commentBody}
                       </div>
-                    </div> */}
+                    </div>
                   </div>
                 )
               })
