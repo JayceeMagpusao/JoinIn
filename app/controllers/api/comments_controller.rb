@@ -4,7 +4,8 @@ class Api::CommentsController < ApplicationController
   def index
     @comments = Comment.all
 
-    render json: {comments: @comments}
+    render "api/comments/index"
+    # render json: {comments: @comments}
   end
 
   def create

@@ -6,6 +6,7 @@ import LogoURL from '../../../app/assets/images/linkedin.png';
 import Modal from '../modal/modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faPortrait, faThumbsUp, faPencilAlt, faTrashAlt, faEllipsisH, faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons'
+import { fetchComments } from '../../util/comment_api_util';
 
 class NewGreeting extends React.Component {
   constructor(props) {
@@ -19,7 +20,7 @@ class NewGreeting extends React.Component {
     this.createLike = this.createLike.bind(this);
   }
   
-  componentDidMount() {this.props.fetchPosts()}
+  componentDidMount() {this.props.fetchPosts(), this.props.fetchComments(), this.props.fetchLikes()}
 
   update(field) {
     return e => this.setState({
@@ -53,33 +54,88 @@ class NewGreeting extends React.Component {
 
   render() {
     let posts = this.props.posts ? this.props.posts : [];
+    let comments = this.props.comments ? this.props.comments : [];
+    let commentsArray = Object.values(comments);
     let likeCounter = this.props.likeCounter ? this.props.likeCounter : [];
     let commentCounter = this.props.commentCounter ? this.props.commentCounter : [];
-    let counter = "counter";
+    let likeCount = "likeCount";
+    let commentCount = "commentCount";
+    let commentPostId = "post_id";
+    let commentBody = "commentBody";
+    let commentId = "commentId";
+    let commentPostAuthorId = "commentPostAuthorId";
+    console.log("i am in the render comments", comments)
 
-    // console.log("i am in the props", posts)
-    // console.log("i am in the props", likes)
+    
+    console.log("i am in the render posts", posts)
+    
     if (posts.length !== 0 && likeCounter.length !==0 && commentCounter.length !== 0 
       && Array.isArray(posts) && Array.isArray(likeCounter) && Array.isArray(commentCounter) ){
       
-      let postsWithLikes = []
-
+      // let postsWithLikes = []
+      
       for (let i = 0; i < likeCounter.length; i++) {
         let like = likeCounter[i];
-        
+        // console.log("i am in the likeCouner loop", likeCounter)
+
         for (let j = 0; j < posts.length; j++) {
           let post = posts[j]
-          if (post[counter] === undefined) {
+
+          if (post[likeCount] === undefined ) {
             // console.log("i am post[times]", post[times])
-            post[counter] = 0
+            post[likeCount] = 0
           } 
           if (post.id === like.post_id) {
             // console.log("i am in the render for loop", like.weird)
             // console.log("i am in the render for loop", post)
-            post[counter] = like.counter
+            post[likeCount] = like.counter
           }
         }
         // console.log("after for loops", posts)
+      }
+    
+      for (let k = 0; k < commentCounter.length; k++) {
+        let comment = commentCounter[k];
+        
+        for (let l = 0; l < posts.length; l++) {
+          let post = posts[l];
+          
+          if (post[commentCount] === undefined) {
+            post[commentCount] = 0
+          }
+          if (post.id === comment.post_id) {
+            post[commentCount] = comment.counter
+          }
+        }
+      }
+      
+      for (let m = 0; m < comments.length; m++) {
+        let commentsForPost = comments[m];
+        // console.log("i am in the comments loop", commentsForPost)
+        
+        for (let n = 0; n < posts.length; n++) {
+          let post = posts[n];
+          
+          if (post.id === commentsForPost.post_id) {
+            // console.log("i am in the comments loop", comments)
+            post[commentBody] = commentsForPost.body;
+            // post[commentId] = commentsForPost.id;
+            // post[commentPostAuthorId] = commentsForPost.post_author_id;
+            // post[commentPostId] = commentsForPost.post_id;
+            // post[commentBody] = "hello";
+            // post[commentId] ="hello";
+            // post[commentPostAuthorId] = "hello";
+            // post[commentPostId] = "hello";
+          }
+          if (post.id !== commentsForPost.post_id) {
+            // console.log("i am in the if commentsforpost.id loop", commentsForPost.post_id)
+            // console.log("i am in the if post.id loop", post.id, post.body)
+            post[commentBody] = "bye";
+            post[commentId] ="bye";
+            post[commentPostAuthorId] = "bye";
+            post[commentPostId] = "bye";
+          }
+        }
       }
 
       return (
@@ -112,8 +168,11 @@ class NewGreeting extends React.Component {
                           <FontAwesomeIcon icon={faThumbsUp} />
                         </div>
                         <div className="post-like-counter">
-                          {post.counter}
+                          {post.likeCount}
                         </div>
+                        <div className="post-comment-counter">
+                          {post.commentCount}
+                        </div>                        
                       </div>
                       <div className="edit-delete-container">
                         <div className="edit-button-container">
@@ -132,6 +191,11 @@ class NewGreeting extends React.Component {
                               </div>
                             : <br />}
                         </div>
+                      </div>
+                    </div>
+                    <div className="comments-container">
+                      <div className="comments-body">
+                        {post.commentBody}
                       </div>
                     </div>
                   </div>
