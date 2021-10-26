@@ -111,22 +111,17 @@ class NewGreeting extends React.Component {
       
       for (let m = 0; m < comments.length; m++) {
         let commentsForPost = comments[m];
-        // console.log("i am in the comments loop", commentsForPost)
-        
+        console.log("i am in the comments loop", commentsForPost)        
         for (let n = 0; n < posts.length; n++) {
           let post = posts[n];
           
           if (post.id === commentsForPost.post_id) {
-            // console.log("i am in the comments loop", comments)
+
             post[commentBody] = commentsForPost.body;
-            // post[commentId] = commentsForPost.id;
-            // post[commentPostAuthorId] = commentsForPost.post_author_id;
-            // post[commentPostId] = commentsForPost.post_id;
-            // post[commentBody] = "hello";
-            // post[commentId] ="hello";
-            // post[commentPostAuthorId] = "hello";
-            // post[commentPostId] = "hello";
-          }
+            post[commentId] = commentsForPost.id;
+            post[commentPostAuthorId] = commentsForPost.post_author_id;
+            post[commentPostId] = commentsForPost.post_id;
+          } 
           if (post.id !== commentsForPost.post_id) {
             // console.log("i am in the if commentsforpost.id loop", commentsForPost.post_id)
             // console.log("i am in the if post.id loop", post.id, post.body)
@@ -189,13 +184,22 @@ class NewGreeting extends React.Component {
                               <div>
                                 <FontAwesomeIcon icon={faTrashAlt} />Delete</div>
                               </div>
-                            : <br />}
+                            : <br/>}
                         </div>
                       </div>
                     </div>
+                    {comments.reverse().map((comment, index) => {
+                      return (
+                        <div key={comment.id} className="comments-container">
+                          <div className="post-comments-body">
+                            {comment.post_id === post.id ? 
+                            <div className="comments-body"> {comment.body}</div> : <br/>}
+                          </div>
+                        </div>
+                      )
+                    })}
                     <div className="comments-container">
                       <div className="comments-body">
-                        {post.commentBody}
                       </div>
                     </div>
                   </div>
