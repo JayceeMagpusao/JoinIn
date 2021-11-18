@@ -5,11 +5,12 @@ import { deletePost, editPost } from '../../actions/post_actions';
 import LogoURL from '../../../app/assets/images/linkedin.png';
 import Modal from '../modal/modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircle, faPortrait, faThumbsUp, faPencilAlt, faTrashAlt, faEllipsisH, faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons'
+import { faCircle, faPortrait, faThumbsUp, faPencilAlt, faTrashAlt, faEllipsisH, faLongArrowAltRight, faComment } from '@fortawesome/free-solid-svg-icons'
 import { fetchComments } from '../../util/comment_api_util';
 
 class NewGreeting extends React.Component {
   constructor(props) {
+    
     super(props);
     this.state = {
       body: '',
@@ -41,15 +42,9 @@ class NewGreeting extends React.Component {
   }
 
   createLike(userId, postId){
-    let like = {user_id: userId, post_id: postId}
-    // console.log("i am inside createlike", like)
-    this.props.createLike(like)
-  }
+    let like = {user_id: userId, post_id: postId};
 
-  deleteLike(userId, postId){
-    let like = {user_id: userId, post_id: postId}
-    // console.log("i am inside deletelike", like)
-    this.props.deleteLike(like)
+    this.props.createLike(like);
   }
 
   render() {
@@ -64,34 +59,28 @@ class NewGreeting extends React.Component {
     let commentBody = "commentBody";
     let commentId = "commentId";
     let commentPostAuthorId = "commentPostAuthorId";
-    console.log("i am in the render comments", comments)
+    // console.log("i am in the render comments", comments)
 
     
-    console.log("i am in the render posts", posts)
+    // console.log("i am in the render posts", posts)
     
     if (posts.length !== 0 && likeCounter.length !==0 && commentCounter.length !== 0 
       && Array.isArray(posts) && Array.isArray(likeCounter) && Array.isArray(commentCounter) ){
       
-      // let postsWithLikes = []
-      
       for (let i = 0; i < likeCounter.length; i++) {
         let like = likeCounter[i];
-        // console.log("i am in the likeCouner loop", likeCounter)
 
         for (let j = 0; j < posts.length; j++) {
           let post = posts[j]
 
           if (post[likeCount] === undefined ) {
-            // console.log("i am post[times]", post[times])
             post[likeCount] = 0
           } 
           if (post.id === like.post_id) {
-            // console.log("i am in the render for loop", like.weird)
-            // console.log("i am in the render for loop", post)
+
             post[likeCount] = like.counter
           }
         }
-        // console.log("after for loops", posts)
       }
     
       for (let k = 0; k < commentCounter.length; k++) {
@@ -111,7 +100,7 @@ class NewGreeting extends React.Component {
       
       for (let m = 0; m < comments.length; m++) {
         let commentsForPost = comments[m];
-        console.log("i am in the comments loop", commentsForPost)        
+  
         for (let n = 0; n < posts.length; n++) {
           let post = posts[n];
           
@@ -123,8 +112,6 @@ class NewGreeting extends React.Component {
             post[commentPostId] = commentsForPost.post_id;
           } 
           if (post.id !== commentsForPost.post_id) {
-            // console.log("i am in the if commentsforpost.id loop", commentsForPost.post_id)
-            // console.log("i am in the if post.id loop", post.id, post.body)
             post[commentBody] = "bye";
             post[commentId] ="bye";
             post[commentPostAuthorId] = "bye";
@@ -158,21 +145,28 @@ class NewGreeting extends React.Component {
                       {post.body}
                     </div>
                     <div className="post-button-container">
-                      <div className="post-like-container">
-                        <div onClick={() => this.createLike(this.state.author_id, post.id)} className="post-like-button">
-                          <FontAwesomeIcon icon={faThumbsUp} />
+                      <div className="post-like-comment-container">
+                        <div className="post-like-container">
+                          <div className="post-like-counter">
+                            {post.likeCount + " likes"}
+                            <div onClick={() => this.createLike(this.state.author_id, post.id)} className="post-like-button">
+                              <FontAwesomeIcon icon={faThumbsUp} />
+                            </div>
+                          </div>
+                          <div className="post-comment-container">
+                            <div className="post-comment-counter">
+                              {post.commentCount + " comments"}
+                            </div>
+                            <div onClick={() => this.props.openModal('comment', post.id)} className="post-comment-create-button">
+                              <FontAwesomeIcon icon={faComment} />
+                            </div>                   
+                          </div>
                         </div>
-                        <div className="post-like-counter">
-                          {post.likeCount}
-                        </div>
-                        <div className="post-comment-counter">
-                          {post.commentCount}
-                        </div>                        
                       </div>
                       <div className="edit-delete-container">
                         <div className="edit-button-container">
                           {this.props.current_user_id === post.author_id ? 
-                            <div onClick={() => this.props.openModal('edit', post.id)} className="feed-post-edit">
+                            <div onClick={() => this.props.openModal('editPost', post.id)} className="feed-post-edit">
                               <div>
                                 <FontAwesomeIcon icon={faPencilAlt} />Edit</div>
                               </div>
@@ -193,7 +187,17 @@ class NewGreeting extends React.Component {
                         <div key={comment.id} className="comments-container">
                           <div className="post-comments-body">
                             {comment.post_id === post.id ? 
-                            <div className="comments-body"> {comment.body}</div> : <br/>}
+                            <div className="comments-body"> {comment.body}</div> : null}
+                          </div>
+                          <div className="user-comments-edit-ellipsis">
+                            <div className="user-comments-edit-button">
+                              {this.props.current_user_id === comment.user_id && post.id === comment.post_id ? 
+                            <div onClick={() => this.props.openModal('editComment', post.id)} className="comments-edit-delete">
+                              <div>
+                                <FontAwesomeIcon icon={faEllipsisH} />Edit/Delete Comment</div>
+                              </div>
+                            : null}
+                            </div>
                           </div>
                         </div>
                       )
@@ -323,7 +327,6 @@ class NewGreeting extends React.Component {
         <div>{`Hi, ${this.props.currentUser}!`}</div>
         <Modal />
         <button onClick={() => this.props.openModal('post')}>Post</button>
-        {/* {this.props.post} */}
         <button onClick={this.logout}>Logout</button>
       </div>
       )

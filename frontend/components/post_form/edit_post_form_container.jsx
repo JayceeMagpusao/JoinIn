@@ -8,7 +8,7 @@ const mapStateToProps = (state) => {
     errors: state.errors.session,
     currentUser: state.entities.users[state.session.id].first_name,
     author_id: state.session.id,
-    post: state.entities.posts[state.ui.modal.id],
+    // post: state.entities.posts[state.ui.modal.id],
   };
 };
 

@@ -21,7 +21,8 @@ const mapStateToProps = (state) => {
         likeCounter: state.entities.posts.likeCounter,
         commentCounter: state.entities.posts.commentCounter,
         comments: comments,
-        commentPostId: state.entities.comments.post_id
+        commentPostId: state.entities.comments.post_id,
+        likes: state.entities.likes
     })
 };
 

@@ -4,18 +4,21 @@ class Api::LikesController < ApplicationController
 
     if @like.save
       # render "api/posts/show"
-      # render "api/likes/index"
-      render json: {like: @like}
+      render "api/likes/show"
+      # render json: {like: @like}
     else
       render json: @post.errors.full_messages, status: 422
     end
   end
 
   def destroy
+    # likeId = Like.where(like_params).id
+    # @like = Like.where(like_params)
     @like = Like.find(params[:id])
+    # puts @like
 
     if @like.destroy
-      render "api/posts/show"
+      render "api/likes/show"
     else
       render ['Like could not be found']
     end

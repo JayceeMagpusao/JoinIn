@@ -189,10 +189,21 @@
   font-size: 4vw;
 }
 
+.post-like-container {
+  display: flex;
+  justify-content: space-between;
+}
+
 .post-button-container {
   display: flex;
   justify-content: space-between;
   color: #0A66C2;
+  border-top: 100%;
+  border-bottom: 100%;
+  border-color: #EBEBEB;
+  border-style: solid;
+  border-left: none;
+  border-right: none;
 }
 
 .edit-button-container:hover {
@@ -201,4 +212,13 @@
 
 .delete-button-container:hover {
   background-color: #EBEBEB;
+}
+
+.post-comment-container {
+  margin-left: 2vw;
+}
+
+.comments-body {
+  background-color: #F2F2F2;
+  margin-top: 1vw;
 }

@@ -3,6 +3,8 @@ import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import CreatePostFormContainer from '../post_form/create_post_form_container';
 import EditPostFormContainer from '../post_form/edit_post_form_container';
+import CreateCommentFormContainer from '../post_form/create_comment_form_container';
+import EditCommentFormContainer from '../post_form/edit_comment_form_container';
 import { withRouter } from 'react-router-dom';
 
 function Modal({ modal, closeModal, allPosts }) {
@@ -14,13 +16,37 @@ function Modal({ modal, closeModal, allPosts }) {
     case 'post':
       component = <CreatePostFormContainer />;
       break;
-    case 'edit':
-      let post = allPosts[modal.id]
-      component = <EditPostFormContainer post={post} />;
+    case 'editPost':
+      let editPost = allPosts[modal.id]
+      allPosts.posts.forEach(post => {
+        if (post.id === modal.id){
+          editPost = post
+        }
+      })
+      component = <EditPostFormContainer post={editPost} />;
       break;
-    // case 'login':
-    //   component = <LoginFormContainer />;
-    //   break;
+    case 'comment':
+      let commentPost = allPosts[modal.id]
+      allPosts.posts.forEach(post => {
+        if (post.id === modal.id){
+          commentPost = post
+        }
+      })
+      component = <CreateCommentFormContainer post={commentPost} />;
+      break;
+    case 'editComment':
+      let editComment = allPosts[modal.id]
+     
+      allPosts.posts.forEach(post => {
+        // console.log("all posts", allPosts.posts)
+        if (post.id === modal.id){
+          editComment = post
+          // console.log("i am in the edit comment modal", editComment)
+        }
+      })
+      // console.log("i am in the comments", comments)
+      component = <EditCommentFormContainer post={editComment} />;
+      break;
     default:
       return null;
   }

@@ -12,7 +12,7 @@ class Api::CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
 
     if @comment.save
-      render "api/posts/show"
+      render "api/comments/show"
     else
       render json: @comment.errors.full_messages, status: 422
     end
@@ -22,7 +22,7 @@ class Api::CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
 
     if @comment.destroy
-      render "api/posts/show"
+      render "api/comments/show"
     else
       render ['Comment could not be found']
     end
@@ -37,7 +37,7 @@ class Api::CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
 
     if @comment.user_id == current_user.id && @comment.update(comment_params)
-      render "api/posts/show"
+      render "api/comments/show"
     elsif !@comment
       render json: ['Could not locate comment'], status: 400
     else

@@ -24,7 +24,10 @@ class Api::PostsController < ApplicationController
     @post = Post.new(post_params)
 
     if @post.save
-      render "api/posts/show"
+      # render "api/posts/index"
+      puts "i am in the created!!!!!"
+      render :show
+      # render json: ["hello"]
     else
       render json: @post.errors.full_messages, status: 422
     end

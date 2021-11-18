@@ -8,8 +8,9 @@ class PostForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      body: 'What do you want to talk about?',
+      body: "",
       author_id: this.props.author_id,
+      posted: false,
     };
     this.handleSubmit = this.handleSubmit.bind(this)
   }
@@ -47,6 +48,7 @@ class PostForm extends React.Component {
             <input type="text"
               value={this.state.body}
               onChange={this.update('body')}
+              placeholder="What do you want to talk about?"
               className="create-post-input" />
             </div>
           <div className="create-post-button-container">
