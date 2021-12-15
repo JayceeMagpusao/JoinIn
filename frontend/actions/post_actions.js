@@ -3,6 +3,7 @@ import * as APIUtil from '../util/post_api_util';
 export const RECEIVE_POSTS = 'RECEIVE_POSTS';
 export const RECEIVE_POST = 'RECEIVE_POST';
 export const REMOVE_POST = 'REMOVE_POST';
+export const CREATE_POST = 'CREATE_POST';
 
 export const receivePosts = posts => ({
   type: RECEIVE_POSTS,
@@ -11,6 +12,11 @@ export const receivePosts = posts => ({
 
 export const receivePost = post => ({
   type: RECEIVE_POST,
+  post,
+});
+
+export const newPost = post => ({
+  type: CREATE_POST,
   post,
 });
 
@@ -33,7 +39,7 @@ export const fetchPost = id => dispatch => (
 
 export const createPost = post => dispatch => (
   APIUtil.createPost(post).then(createdPost => (
-    dispatch(receivePost(createdPost))
+    dispatch(newPost(createdPost))
   ))
 );
 

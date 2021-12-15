@@ -4,7 +4,9 @@ import { createComment, updateComment, deleteComment } from '../../actions/comme
 import EditCommentForm from './edit_comment_form';
 
 const mapStateToProps = (state) => {
+  console.log("i am in the comment container", state.entities.comments)
   return {
+    comment_id: state.entities.comments,
     errors: state.errors.session,
     currentUser: state.entities.users[state.session.id].first_name,
     user_id: state.session.id,

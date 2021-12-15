@@ -1,6 +1,9 @@
 class Api::PostsController < ApplicationController
+  before_action :require_logged_in
+
   def index
-    @posts = Post.all
+    # @posts = Post.all
+    @posts = Post.all.order("created_at DESC")
     @likeCounter = Like.likeCounter
     @commentCounter = Comment.commentCounter
 
@@ -52,8 +55,12 @@ class Api::PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
-
+    # @comment = @post.comments.where(post_id: @post.id)
+    # @comment.each do |comment|
+    #   comment.destroy
+    
     if @post.destroy
+
       render :show
     else
       render ['Post could not be found']

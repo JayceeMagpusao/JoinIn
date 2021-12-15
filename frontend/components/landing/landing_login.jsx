@@ -19,9 +19,12 @@ class LandingLoginForm extends React.Component {
   }
 
   handleSubmit(e) {
+    let feed = "/feed"
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(user);
+    this.props.processForm(user)
+      // .then(() =>  this.props.history.push(feed));
+      .then(() => window.location.reload(false))
   }
 
   renderErrors() {

@@ -1,8 +1,8 @@
 class Api::CommentsController < ApplicationController
-  # before_action :require_logged_in
+  before_action :require_logged_in
 
   def index
-    @comments = Comment.all
+    @comments = Comment.all.order("created_at DESC")
 
     render "api/comments/index"
     # render json: {comments: @comments}

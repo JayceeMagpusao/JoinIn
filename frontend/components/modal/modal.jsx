@@ -36,12 +36,12 @@ function Modal({ modal, closeModal, allPosts }) {
       break;
     case 'editComment':
       let editComment = allPosts[modal.id]
+      console.log("i am in the edit comment modal", allPosts)
      
       allPosts.posts.forEach(post => {
         // console.log("all posts", allPosts.posts)
         if (post.id === modal.id){
           editComment = post
-          // console.log("i am in the edit comment modal", editComment)
         }
       })
       // console.log("i am in the comments", comments)

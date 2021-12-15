@@ -59,13 +59,15 @@ class NewGreeting extends React.Component {
     let commentBody = "commentBody";
     let commentId = "commentId";
     let commentPostAuthorId = "commentPostAuthorId";
-    // console.log("i am in the render comments", comments)
 
-    
-    // console.log("i am in the render posts", posts)
-    
-    if (posts.length !== 0 && likeCounter.length !==0 && commentCounter.length !== 0 
-      && Array.isArray(posts) && Array.isArray(likeCounter) && Array.isArray(commentCounter) ){
+    // console.log("posts.length", posts.length !== 0)
+    // console.log("likeCounter.length", likeCounter.length !==0)
+    // console.log("commentCounter.length", commentCounter.length !== 0)
+
+    if (
+      // posts.length !== 0 && likeCounter.length !==0 && commentCounter.length !== 0 && 
+      Array.isArray(posts) && Array.isArray(likeCounter) && Array.isArray(commentCounter) 
+      ){
       
       for (let i = 0; i < likeCounter.length; i++) {
         let like = likeCounter[i];
@@ -135,7 +137,7 @@ class NewGreeting extends React.Component {
               <button onClick={() => this.props.openModal('post')} className="joinin-post-button">Start a post</button>
             </div>
             {
-              posts.reverse().map ((post, index) => {
+              posts.map ((post, index) => {
                 return (
                   <div key={post.id} className="feed-box">
                     <div className="post-potrait-icon">
@@ -182,7 +184,7 @@ class NewGreeting extends React.Component {
                         </div>
                       </div>
                     </div>
-                    {comments.reverse().map((comment, index) => {
+                    {comments.map((comment, index) => {
                       return (
                         <div key={comment.id} className="comments-container">
                           <div className="post-comments-body">
@@ -193,6 +195,7 @@ class NewGreeting extends React.Component {
                             <div className="user-comments-edit-button">
                               {this.props.current_user_id === comment.user_id && post.id === comment.post_id ? 
                             <div onClick={() => this.props.openModal('editComment', post.id)} className="comments-edit-delete">
+                                {/* {console.log("i am in the comments returns", comment)} */}
                               <div>
                                 <FontAwesomeIcon icon={faEllipsisH} />Edit/Delete Comment</div>
                               </div>

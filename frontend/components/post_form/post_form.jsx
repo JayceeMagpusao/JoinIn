@@ -10,7 +10,6 @@ class PostForm extends React.Component {
     this.state = {
       body: "",
       author_id: this.props.author_id,
-      posted: false,
     };
     this.handleSubmit = this.handleSubmit.bind(this)
   }
@@ -26,7 +25,7 @@ class PostForm extends React.Component {
     let post = Object.assign({}, {body: this.state.body}, {author_id: this.state.author_id})
 
     this.props.createPost(post)
-    .then(() => this.props.closeModal())
+      .then(() => this.props.closeModal())
   }
 
   render() {
