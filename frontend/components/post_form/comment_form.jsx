@@ -25,6 +25,7 @@ class CommentForm extends React.Component {
       {post_id: this.props.post.id}, {post_author_id: this.props.post.author_id})
 
     this.props.createComment(comment)
+      .then(() => this.props.fetchPosts())
       .then(() => this.props.closeModal());
   };
 

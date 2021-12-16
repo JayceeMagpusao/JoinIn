@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { updateComment } from '../../actions/comments_actions';
-import { faPortrait, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faPortrait, faTimes, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
 class EditCommentForm extends React.Component {
   constructor(props) {
@@ -13,7 +13,6 @@ class EditCommentForm extends React.Component {
       post_author_id: props.post_author_id,
       user_id: props.user_id
     };
-    console.log("i am in the commentForm", props)
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   
@@ -36,7 +35,7 @@ class EditCommentForm extends React.Component {
     return (
       <div className="create-comment-form-container">
         <div className="create-comment-form-label-container">
-          <div className="create-comment-form-label">Add A Comment</div>
+          <div className="create-comment-form-label">Edit Comment</div>
           <div className="x-button-icon">
             <div onClick={() => this.props.closeModal()}>
               <FontAwesomeIcon icon={faTimes} />
@@ -53,8 +52,17 @@ class EditCommentForm extends React.Component {
             onChange={this.update('body')}
             className="create-comment-input" />
           </div>
-          <div className="create-comment-button-container">
-            <button className="create-comment-form-button">Save Changes</button>
+          <div className="edit-delete-button-container">
+            <div className="delete-comment-button-container">
+              <div onClick={() => this.props.deleteComment(this.state.commentId)
+                .then(() => this.props.fetchPosts())
+                .then(() => this.props.closeModal())} className="delete-comment-button">
+                <FontAwesomeIcon icon={faTrashAlt} />
+              </div>
+            </div>
+            <div className="create-comment-button-container">
+              <button className="create-comment-form-button">Save Changes</button>
+            </div>
           </div>
         </form>
       </div>
