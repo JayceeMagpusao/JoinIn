@@ -44,3 +44,7 @@
   cursor: pointer;
   padding: 0 2vw;
 }
+
+.post-unlike-button {
+  color: green;
+}

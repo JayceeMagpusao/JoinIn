@@ -11,6 +11,7 @@ import NewGreeting from './new_greeting';
 const mapStateToProps = (state) => {
 
     let comments = Object.values(state.entities.comments);
+    let likesArray = Object.values(state.entities.likes);
 
     return ({
         errors: state.errors.session,
@@ -22,7 +23,9 @@ const mapStateToProps = (state) => {
         commentCounter: state.entities.posts.commentCounter,
         comments: comments,
         commentPostId: state.entities.comments.post_id,
-        likes: state.entities.likes
+        likes: state.entities.likes,
+        likesArray: likesArray
+
     })
 };
 

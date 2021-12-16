@@ -43,13 +43,20 @@ class NewGreeting extends React.Component {
   createLike(userId, postId){
     let like = {user_id: userId, post_id: postId};
 
-    this.props.createLike(like);
+    this.props.createLike(like)
+      .then(() => this.props.fetchPosts());
+  }
+
+  deleteLike(likeId){
+    this.props.deleteLike(likeId)
+      .then(() => this.props.fetchPosts());
   }
 
   render() {
     let posts = this.props.posts ? this.props.posts : [];
     let comments = this.props.comments ? this.props.comments : [];
-    let commentsArray = Object.values(comments);
+    let likes = this.props.likes ? this.props.likes : [];
+    let likesArray = Object.values(likes);
     let likeCounter = this.props.likeCounter ? this.props.likeCounter : [];
     let commentCounter = this.props.commentCounter ? this.props.commentCounter : [];
     let likeCount = "likeCount";
@@ -58,21 +65,17 @@ class NewGreeting extends React.Component {
     let commentBody = "commentBody";
     let commentId = "commentId";
     let commentPostAuthorId = "commentPostAuthorId";
-    let liked = <div onClick={() => this.createLike(this.state.author_id, post.id)} className="post-liked-button">
-      <FontAwesomeIcon icon={faThumbsUp} />
-      </div>
+    let isLiked = "isLiked";
+    // let liked = <div onClick={() => this.createLike(this.state.author_id, post.id)} className="post-liked-button">
+    //   <FontAwesomeIcon icon={faThumbsUp} />
+    //   </div>
     let unlike = <div onClick={() => this.deleteLike(this.state.author_id, post.id)} className="post-unlike-button">
       <FontAwesomeIcon icon={faThumbsUp} />
       </div>
 
-    // console.log("posts.length", posts.length !== 0)
-    // console.log("likeCounter.length", likeCounter.length !==0)
-    // console.log("commentCounter.length", commentCounter.length !== 0)
-
     if (
       // posts.length !== 0 && likeCounter.length !==0 && commentCounter.length !== 0 && 
-      Array.isArray(posts) && Array.isArray(likeCounter) && Array.isArray(commentCounter) 
-      ){
+      Array.isArray(posts) && Array.isArray(likeCounter) && Array.isArray(commentCounter) ){
       
       for (let i = 0; i < likeCounter.length; i++) {
         let like = likeCounter[i];
@@ -112,18 +115,29 @@ class NewGreeting extends React.Component {
           let post = posts[n];
           
           if (post.id === commentsForPost.post_id) {
-
             post[commentBody] = commentsForPost.body;
             post[commentId] = commentsForPost.id;
             post[commentPostAuthorId] = commentsForPost.post_author_id;
             post[commentPostId] = commentsForPost.post_id;
           } 
-          if (post.id !== commentsForPost.post_id) {
-            post[commentBody] = "bye";
-            post[commentId] ="bye";
-            post[commentPostAuthorId] = "bye";
-            post[commentPostId] = "bye";
+        }
+      }
+
+      for (let o = 0; o < likesArray.length; o++) {
+        let likesForPost = likesArray[o];
+        
+        for (let p = 0; p < posts.length; p++) {
+          let post = posts[p];
+          
+          if (post.id === likesForPost.post_id && likesForPost.user_id === this.props.current_user_id) {
+            // console.log("i am in the likes for post loop", likesForPost)
+            // console.log("i am in the likes array loop", post.id)
+            post[isLiked] = likesForPost.id
+            // console.log("i am in the likes for post loop", post)
           }
+          // if (post.id !== likesForPost.post_id ) {
+          //   post[liked] = false
+          // }
         }
       }
 
@@ -156,9 +170,17 @@ class NewGreeting extends React.Component {
                         <div className="post-like-container">
                           <div className="post-like-counter">
                             {post.likeCount + " likes"}
-                            <div onClick={() => this.createLike(this.state.author_id, post.id)} className="post-like-button">
+                            {/* <div onClick={() => this.createLike(this.state.author_id, post.id)} className="post-like-button">
                               <FontAwesomeIcon icon={faThumbsUp} />
-                            </div>
+                            </div> */}
+                            {post.isLiked ? 
+                            <div onClick={() => this.deleteLike(post.isLiked)} className="post-unlike-button">
+                              <FontAwesomeIcon icon={faThumbsUp} />
+                            </div> : 
+                            <div onClick={() => this.createLike(this.state.author_id, post.id)} className="post-liked-button">
+                              <FontAwesomeIcon icon={faThumbsUp} />
+                            </div>}
+                            {/* {console.log("i am in the posts likes", this.props)} */}
                           </div>
                           <div className="post-comment-container">
                             <div className="post-comment-counter">
