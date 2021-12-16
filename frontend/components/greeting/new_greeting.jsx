@@ -10,7 +10,6 @@ import { fetchComments } from '../../util/comment_api_util';
 
 class NewGreeting extends React.Component {
   constructor(props) {
-    
     super(props);
     this.state = {
       body: '',
@@ -59,6 +58,12 @@ class NewGreeting extends React.Component {
     let commentBody = "commentBody";
     let commentId = "commentId";
     let commentPostAuthorId = "commentPostAuthorId";
+    let liked = <div onClick={() => this.createLike(this.state.author_id, post.id)} className="post-liked-button">
+      <FontAwesomeIcon icon={faThumbsUp} />
+      </div>
+    let unlike = <div onClick={() => this.deleteLike(this.state.author_id, post.id)} className="post-unlike-button">
+      <FontAwesomeIcon icon={faThumbsUp} />
+      </div>
 
     // console.log("posts.length", posts.length !== 0)
     // console.log("likeCounter.length", likeCounter.length !==0)
@@ -189,12 +194,12 @@ class NewGreeting extends React.Component {
                         <div key={comment.id} className="comments-container">
                           <div className="post-comments-body">
                             {comment.post_id === post.id ? 
-                            <div className="comments-body"> {comment.body}</div> : null}
+                            <div className="comments-body"> {comment.body} </div> : null}
                           </div>
                           <div className="user-comments-edit-ellipsis">
                             <div className="user-comments-edit-button">
                               {this.props.current_user_id === comment.user_id && post.id === comment.post_id ? 
-                            <div onClick={() => this.props.openModal('editComment', post.id)} className="comments-edit-delete">
+                            <div onClick={() => this.props.openModal('editComment', comment.id)} className="comments-edit-delete">
                                 {/* {console.log("i am in the comments returns", comment)} */}
                               <div>
                                 <FontAwesomeIcon icon={faEllipsisH} />Edit/Delete Comment</div>

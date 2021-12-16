@@ -38,7 +38,7 @@ export const createComment = comment => dispatch => (
 );
 
 export const updateComment = comment => dispatch => (
-  APIUtil.updateComment(comment)
+  CommentAPIUtil.updateComment(comment)
     .then(updatedComment => dispatch(receiveComment(updatedComment)
   ))
 );

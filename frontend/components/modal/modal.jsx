@@ -7,7 +7,7 @@ import CreateCommentFormContainer from '../post_form/create_comment_form_contain
 import EditCommentFormContainer from '../post_form/edit_comment_form_container';
 import { withRouter } from 'react-router-dom';
 
-function Modal({ modal, closeModal, allPosts }) {
+function Modal({ modal, closeModal, allPosts, allComments }) {
   if (!modal) {
     return null;
   }
@@ -35,17 +35,21 @@ function Modal({ modal, closeModal, allPosts }) {
       component = <CreateCommentFormContainer post={commentPost} />;
       break;
     case 'editComment':
-      let editComment = allPosts[modal.id]
-      console.log("i am in the edit comment modal", allPosts)
-     
-      allPosts.posts.forEach(post => {
-        // console.log("all posts", allPosts.posts)
-        if (post.id === modal.id){
-          editComment = post
-        }
-      })
+      let editedComment = allComments[modal.id]
+      // this.fetchComment(modal.id)
+
+      console.log("i am in the edit comment modal props", editedComment)
+      // console.log("i am in the edit comment modal state", state)
+      // debugger
+      // allPosts.posts.forEach(post => {
+      //   // console.log("all posts", allPosts.posts)
+      //   if (post.id === modal.id){
+      //     editComment = post
+      //   }
+      // })
       // console.log("i am in the comments", comments)
-      component = <EditCommentFormContainer post={editComment} />;
+      // component = <EditCommentFormContainer post={editedComment} />;
+      component = <EditCommentFormContainer comment={editedComment}/>;
       break;
     default:
       return null;
@@ -61,11 +65,13 @@ function Modal({ modal, closeModal, allPosts }) {
 
 const mapStateToProps = state => ({
   modal: state.ui.modal,
-  allPosts: state.entities.posts
+  allPosts: state.entities.posts,
+  allComments: state.entities.comments
 });
 
 const mapDispatchToProps = dispatch => ({
-  closeModal: () => dispatch(closeModal())
+  closeModal: () => dispatch(closeModal()),
+  fetchComment: (id) => dispatch(fetchComment(id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Modal);

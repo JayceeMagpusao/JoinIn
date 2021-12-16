@@ -7,12 +7,13 @@ class EditCommentForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // body: this.state.body,
-      user_id: props.user_id,
-      post_id: props.post.id,
-      post_author_id: props.post.author_id
+      body: props.comment.body,
+      commentId: props.comment.id,
+      post_id: props.post_id,
+      post_author_id: props.post_author_id,
+      user_id: props.user_id
     };
-    console.log("i am in the commentForm", this.state)
+    console.log("i am in the commentForm", props)
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   
@@ -25,7 +26,7 @@ class EditCommentForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     let comment = Object.assign({}, {body: this.state.body}, {user_id: this.state.user_id},
-      {post_id: this.props.post.id}, {post_author_id: this.props.post.author_id})
+      {post_id: this.state.post_id}, {post_author_id: this.state.post_author_id}, {id: this.state.commentId})
 
     this.props.updateComment(comment)
       .then(() => this.props.closeModal());
@@ -53,7 +54,7 @@ class EditCommentForm extends React.Component {
             className="create-comment-input" />
           </div>
           <div className="create-comment-button-container">
-            <button className="create-comment-form-button">Post</button>
+            <button className="create-comment-form-button">Save Changes</button>
           </div>
         </form>
       </div>
