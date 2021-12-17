@@ -5,7 +5,7 @@ import { deletePost, editPost } from '../../actions/post_actions';
 import LogoURL from '../../../app/assets/images/linkedin.png';
 import Modal from '../modal/modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircle, faPortrait, faThumbsUp, faPencilAlt, faTrashAlt, faEllipsisH, faLongArrowAltRight, faComment } from '@fortawesome/free-solid-svg-icons'
+import { faCircle, faPortrait, faThumbsUp, faPencilAlt, faTrashAlt, faEllipsisH, faLongArrowAltRight, faComment, faEdit } from '@fortawesome/free-solid-svg-icons'
 import { fetchComments } from '../../util/comment_api_util';
 
 class NewGreeting extends React.Component {
@@ -66,12 +66,6 @@ class NewGreeting extends React.Component {
     let commentId = "commentId";
     let commentPostAuthorId = "commentPostAuthorId";
     let isLiked = "isLiked";
-    // let liked = <div onClick={() => this.createLike(this.state.author_id, post.id)} className="post-liked-button">
-    //   <FontAwesomeIcon icon={faThumbsUp} />
-    //   </div>
-    let unlike = <div onClick={() => this.deleteLike(this.state.author_id, post.id)} className="post-unlike-button">
-      <FontAwesomeIcon icon={faThumbsUp} />
-      </div>
 
     if (
       // posts.length !== 0 && likeCounter.length !==0 && commentCounter.length !== 0 && 
@@ -170,9 +164,6 @@ class NewGreeting extends React.Component {
                         <div className="post-like-container">
                           <div className="post-like-counter">
                             {post.likeCount + " likes"}
-                            {/* <div onClick={() => this.createLike(this.state.author_id, post.id)} className="post-like-button">
-                              <FontAwesomeIcon icon={faThumbsUp} />
-                            </div> */}
                             {post.isLiked ? 
                             <div onClick={() => this.deleteLike(post.isLiked)} className="post-unlike-button">
                               <FontAwesomeIcon icon={faThumbsUp} />
@@ -180,7 +171,6 @@ class NewGreeting extends React.Component {
                             <div onClick={() => this.createLike(this.state.author_id, post.id)} className="post-liked-button">
                               <FontAwesomeIcon icon={faThumbsUp} />
                             </div>}
-                            {/* {console.log("i am in the posts likes", this.props)} */}
                           </div>
                           <div className="post-comment-container">
                             <div className="post-comment-counter">
@@ -217,17 +207,16 @@ class NewGreeting extends React.Component {
                           <div className="post-comments-body">
                             {comment.post_id === post.id ? 
                             <div className="comments-body"> {comment.body} </div> : null}
+                              <div className="user-comments-edit-container">
+                                <div className="user-comments-edit-button">
+                                  {this.props.current_user_id === comment.user_id && post.id === comment.post_id ? 
+                                <div onClick={() => this.props.openModal('editComment', comment.id)} className="comments-edit-delete">
+                                  <div>
+                                    <FontAwesomeIcon icon={faEdit} /></div>
+                                  </div>
+                                : null}
+                                </div>
                           </div>
-                          <div className="user-comments-edit-ellipsis">
-                            <div className="user-comments-edit-button">
-                              {this.props.current_user_id === comment.user_id && post.id === comment.post_id ? 
-                            <div onClick={() => this.props.openModal('editComment', comment.id)} className="comments-edit-delete">
-                                {/* {console.log("i am in the comments returns", comment)} */}
-                              <div>
-                                <FontAwesomeIcon icon={faEllipsisH} />Edit/Delete Comment</div>
-                              </div>
-                            : null}
-                            </div>
                           </div>
                         </div>
                       )
