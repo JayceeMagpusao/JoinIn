@@ -46,5 +46,9 @@
 }
 
 .post-unlike-button {
-  color: green;
+  color: #0A66C2;
+}
+
+.post-unlike-button:hover {
+  cursor: pointer
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { updateComment } from '../../actions/comments_actions';
-import { faPortrait, faTimes, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { faPortrait, faTimes, faTrashAlt, faSave } from '@fortawesome/free-solid-svg-icons';
 
 class EditCommentForm extends React.Component {
   constructor(props) {
@@ -60,9 +60,9 @@ class EditCommentForm extends React.Component {
                 <FontAwesomeIcon icon={faTrashAlt} />
               </div>
             </div>
-            <div className="create-comment-button-container">
-              <button className="create-comment-form-button">Save Changes</button>
-            </div>
+              <div className="edit-comment-button-container">
+                <button className="edit-comment-form-button"><FontAwesomeIcon icon={faSave} /></button>
+              </div>
           </div>
         </form>
       </div>

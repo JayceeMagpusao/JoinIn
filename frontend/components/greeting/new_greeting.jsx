@@ -163,7 +163,8 @@ class NewGreeting extends React.Component {
                       <div className="post-like-comment-container">
                         <div className="post-like-container">
                           <div className="post-like-counter">
-                            {post.likeCount + " likes"}
+                            {/* {post.likeCount + " likes"} */}
+                            {post.likeCount}
                             {post.isLiked ? 
                             <div onClick={() => this.deleteLike(post.isLiked)} className="post-unlike-button">
                               <FontAwesomeIcon icon={faThumbsUp} />
@@ -174,7 +175,8 @@ class NewGreeting extends React.Component {
                           </div>
                           <div className="post-comment-container">
                             <div className="post-comment-counter">
-                              {post.commentCount + " comments"}
+                              {/* {post.commentCount + " comments"} */}
+                              {post.commentCount}
                             </div>
                             <div onClick={() => this.props.openModal('comment', post.id)} className="post-comment-create-button">
                               <FontAwesomeIcon icon={faComment} />

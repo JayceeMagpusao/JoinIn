@@ -44,7 +44,6 @@
   background: #fff;
   margin: 10px;
   text-align: left;
-  cursor: pointer;
   padding: 0 1vw;
 }
 
@@ -208,10 +207,12 @@
 
 .edit-button-container:hover {
   background-color: #EBEBEB;
+  cursor: pointer;
 }
 
 .delete-button-container:hover {
   background-color: #EBEBEB;
+  cursor: pointer;
 }
 
 .post-comment-container {
@@ -229,3 +230,26 @@
   justify-content: space-between;
 }
 
+.comments-edit-delete {
+  color: #0A66C2;
+  margin-top: 1vw;
+}
+
+.comments-edit-delete:hover {
+  color: #0A66C2;
+  margin-top: 1vw;
+  background-color: #EBEBEB;
+  cursor: pointer;
+}
+
+.post-liked-button {
+  color: #7F7F7F;
+}
+
+.post-liked-button:hover {
+  cursor: pointer;  
+}
+
+.post-comment-create-button {
+  cursor: pointer;  
+}

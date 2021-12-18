@@ -1,0 +1,30 @@
+.edit-delete-button-container {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 30%;
+  font-size: 1.5vw;
+}
+
+/* .edit-comment-form-button {
+  border-radius: 24px;
+  background: radial-gradient(ellipse at center,
+  #0A66C2, black 70%);
+  color: #FFFFFF;
+  cursor: pointer;
+  padding: 0 2vw;
+} */
+
+.edit-comment-form-button {
+  background-color: white;
+  color: #0A66C2;
+  cursor: pointer;
+  border: none;
+  padding: none;
+}
+
+
+
+.delete-comment-button {
+  color: #0A66C2;
+  cursor: pointer;
+}
