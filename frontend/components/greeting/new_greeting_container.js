@@ -6,6 +6,7 @@ import { fetchPosts, deletePost } from '../../actions/post_actions';
 import { openModal, closeModal } from '../../actions/modal_actions';
 import { createLike, deleteLike, fetchLikes } from '../../actions/likes_actions';
 import { createComment, fetchComments, deleteComment } from '../../actions/comments_actions';
+import { updateUser, fetchUsers } from '../../actions/users_actions';
 import NewGreeting from './new_greeting';
 
 const mapStateToProps = (state) => {
@@ -46,7 +47,9 @@ const mapDispatchToProps = dispatch => ({
     deleteLike: (id) => dispatch(deleteLike(id)),
     fetchComments: () => dispatch(fetchComments()),
     deleteComment: (id) => dispatch(deleteComment(id)),
-    createComment: (comment) => dispatch(createComment(comment))
+    createComment: (comment) => dispatch(createComment(comment)),
+    updateUser: (user) => dispatch(updateUser(user)),
+    fetchUsers: () => dispatch(fetchUsers())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewGreeting);

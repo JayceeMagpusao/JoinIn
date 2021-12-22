@@ -5,7 +5,7 @@ import { deletePost, editPost } from '../../actions/post_actions';
 import LogoURL from '../../../app/assets/images/linkedin.png';
 import Modal from '../modal/modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircle, faPortrait, faThumbsUp, faPencilAlt, faTrashAlt, faEllipsisH, faLongArrowAltRight, faComment, faEdit } from '@fortawesome/free-solid-svg-icons'
+import { faCircle, faPortrait, faThumbsUp, faPencilAlt, faTrashAlt, faEllipsisH, faLongArrowAltRight, faComment, faEdit, faUserEdit } from '@fortawesome/free-solid-svg-icons'
 import { fetchComments } from '../../util/comment_api_util';
 
 class NewGreeting extends React.Component {
@@ -141,6 +141,41 @@ class NewGreeting extends React.Component {
             <div className="new-greeting-box">
               <label className="new-greeting-user-label">{`Hi, ${this.props.currentUser}!`}</label>
               <button onClick={this.logout} className="joinin-logout-button">Logout</button>
+              <div className="current-user-info-box">
+                <div className="current-user-label">Name:</div>
+                <div className="current-user-info">
+                  {this.props.currentUser + " " + this.props.currentUserLastName}
+                </div>
+                <div className="current-user-label">Email:</div>
+                <div className="current-user-info">
+                  {this.props.currentUserEmail}
+                </div>
+                <div className="current-user-label">Job Title:</div>
+                <div className="current-user-info">
+                  {this.props.currentUserJobTitle}
+                </div>
+                <div className="current-user-label">Company Name:</div>
+                <div className="current-user-info">
+                  {this.props.currentUserCompanyName}
+                </div>
+                <div className="current-user-label">Industry Type:</div>
+                <div className="current-user-info">
+                  {this.props.currentUserIndustryType}
+                </div>
+                <div className="current-user-label">Start Date:</div>
+                <div className="current-user-info">
+                  {this.props.currentUserStartDate}
+                </div>
+                <div className="current-user-label">End Date:</div>
+                <div className="current-user-info">
+                  {this.props.currentUserEndDate}
+                </div>
+                {/* <div className="current-user-edit-box">
+                  <div className="current-user-edit-button">
+
+                  </div>
+                </div>    */}
+              </div>
             </div>
           </div>
           <Modal />
