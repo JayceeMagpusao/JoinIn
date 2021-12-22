@@ -24,8 +24,14 @@ const mapStateToProps = (state) => {
         comments: comments,
         commentPostId: state.entities.comments.post_id,
         likes: state.entities.likes,
-        likesArray: likesArray
-
+        likesArray: likesArray,
+        currentUserLastName: state.entities.users[state.session.id].last_name,
+        currentUserEmail: state.entities.users[state.session.id].email,
+        currentUserCompanyName: state.entities.users[state.session.id].company_name,
+        currentUserIndustryType: state.entities.users[state.session.id].industry_type,
+        currentUserJobTitle: state.entities.users[state.session.id].job_title,
+        currentUserStartDate: state.entities.users[state.session.id].start_date,
+        currentUserEndDate: state.entities.users[state.session.id].end_date,
     })
 };
 
