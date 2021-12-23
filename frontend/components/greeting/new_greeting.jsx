@@ -5,7 +5,8 @@ import { deletePost, editPost } from '../../actions/post_actions';
 import LogoURL from '../../../app/assets/images/linkedin.png';
 import Modal from '../modal/modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircle, faPortrait, faThumbsUp, faPencilAlt, faTrashAlt, faEllipsisH, faLongArrowAltRight, faComment, faEdit, faUserEdit } from '@fortawesome/free-solid-svg-icons'
+import { faCircle, faPortrait, faThumbsUp, faPencilAlt, faTrashAlt, faEllipsisH, 
+  faLongArrowAltRight, faComment, faEdit, faUserEdit, faLinkedin, faGithub } from '@fortawesome/free-solid-svg-icons'
 import { fetchComments } from '../../util/comment_api_util';
 
 class NewGreeting extends React.Component {
@@ -138,9 +139,13 @@ class NewGreeting extends React.Component {
       return (
         <div className="new-greeting">
           <div className="new-greeting-container">
+            <div className="new-greeting-logout-container">
+              <div className="new-greeting-logout-content">
+                <label className="new-greeting-user-label">{`Hi, ${this.props.currentUser}!`}</label>
+                <button onClick={this.logout} className="joinin-logout-button">Logout</button>
+              </div>
+            </div>
             <div className="new-greeting-box">
-              <label className="new-greeting-user-label">{`Hi, ${this.props.currentUser}!`}</label>
-              <button onClick={this.logout} className="joinin-logout-button">Logout</button>
               <div className="current-user-info-box">
                 <div className="current-user-label">Name:</div>
                 <div className="current-user-info">
@@ -170,11 +175,26 @@ class NewGreeting extends React.Component {
                 <div className="current-user-info">
                   {this.props.currentUserEndDate}
                 </div>
-                {/* <div className="current-user-edit-box">
-                  <div className="current-user-edit-button">
-
-                  </div>
-                </div>    */}
+                {/* <div className="current-user-button-container">
+                  <div className="current-user-edit-button-icon"><FontAwesomeIcon icon={faUserEdit} /></div>
+                  <button onClick={() => this.props.openModal('editUser')} className="edit-user-button">Start a post</button>
+                </div> */}
+                <div className="edit-user-container">
+                  <div onClick={() => this.props.openModal('editUser', this.props.author_id)} className="edit-user-button">
+                    <FontAwesomeIcon icon={faUserEdit} />
+                  </div>    
+                </div>
+              </div>
+            </div>
+            <div className="current-user-socials-container">
+              <div className="current-user-socials-label">Do you like what you see?</div>
+              <div className="current-socials-button-container">
+                <div onClick={() => this.props.history.push('editUser', this.props.author_id)} className="current-user-socials-button">
+                  <FontAwesomeIcon icon={faLinkedin} />
+                </div>   
+                <div onClick={() => this.props.history.push('editUser', this.props.author_id)} className="current-user-socials-button">
+                  <FontAwesomeIcon icon={faGithub} />
+                </div>   
               </div>
             </div>
           </div>

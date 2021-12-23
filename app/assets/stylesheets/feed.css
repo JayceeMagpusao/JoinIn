@@ -8,13 +8,18 @@
   padding-bottom: 50vw;
 }
 
-.new-greeting-container {
+.new-greeting-logout-container {
   width: fit-content;
   height: fit-content;
   background-color: #FFFFFF;
   display: flex;
   flex-direction: column;
   border-radius: 8px;
+}
+
+.new-greeting-logout-content {
+  display: flex;
+  justify-content: space-between;
 }
 
 .post-button-potrait-icon {
@@ -252,4 +257,41 @@
 
 .post-comment-create-button {
   cursor: pointer;  
+}
+
+.new-greeting-box {
+  width: fit-content;
+  height: fit-content;
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  margin-top: 1vw;
+  padding-right: 1vw;
+}
+
+.edit-user-button {
+  margin-left: 9vw;
+  color: #0A66C2;
+  font-size: 1.5vw;
+  cursor: pointer;
+}
+
+.edit-user-button:hover {
+  background-color: #EBEBEB;
+}
+
+.current-user-label {
+  font-weight: bold;
+}
+
+.current-user-socials-container {
+  width: 12vw;
+  height: fit-content;
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  margin-top: 1vw;
+  padding-right: 1vw;
+}
+
+.current-user-socials-label {
+  font-weight: bold;
 }

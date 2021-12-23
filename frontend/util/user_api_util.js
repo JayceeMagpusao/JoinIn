@@ -26,3 +26,11 @@ export const updateUser = user => (
     data: { user: user }
   })
 );
+
+export const createUser = user => (
+  $.ajax({
+    method: 'POST',
+    url: 'api/users',
+    data: { user: user }
+  })
+);

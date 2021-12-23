@@ -23,9 +23,7 @@ const App = () => (
     <header>
       
     </header>
-    {/* <div>
-      <NavBarContainer/>
-    </div> */}
+
     <Switch>
       <ProtectedRoute exact path="/feed" component={NewGreetingContainer} />
       <AuthRoute exact path="/" component={HomeContainer} />

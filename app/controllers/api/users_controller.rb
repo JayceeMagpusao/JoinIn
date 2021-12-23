@@ -19,7 +19,8 @@ class Api::UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
 
-    if @user.id == current_user.id && @user.update(user_params)
+    # if @user.id == current_user.id && @user.update(user_params)
+    if @user.update(user_params)
       render "api/users/show"
     elsif !@user
       render json: ['Could not locate user'], status: 400

@@ -5,14 +5,20 @@ import CreatePostFormContainer from '../post_form/create_post_form_container';
 import EditPostFormContainer from '../post_form/edit_post_form_container';
 import CreateCommentFormContainer from '../post_form/create_comment_form_container';
 import EditCommentFormContainer from '../post_form/edit_comment_form_container';
+import EditUserFormContainer from '../user/user_container';
 import { withRouter } from 'react-router-dom';
 
-function Modal({ modal, closeModal, allPosts, allComments }) {
+function Modal({ modal, closeModal, allPosts, allComments, currentUser }) {
   if (!modal) {
     return null;
   }
   let component;
   switch (modal.type) {
+    case 'editUser':
+      let editUser = currentUser
+      console.log("i am in the modal", editUser)
+      component = <EditUserFormContainer user={editUser}/>;
+      break;
     case 'post':
       component = <CreatePostFormContainer />;
       break;
@@ -63,11 +69,14 @@ function Modal({ modal, closeModal, allPosts, allComments }) {
   );
 }
 
-const mapStateToProps = state => ({
-  modal: state.ui.modal,
-  allPosts: state.entities.posts,
-  allComments: state.entities.comments
-});
+const mapStateToProps = (state) => {
+  return {
+    modal: state.ui.modal,
+    allPosts: state.entities.posts,
+    allComments: state.entities.comments,
+    currentUser: state.entities.users
+  }
+};
 
 const mapDispatchToProps = dispatch => ({
   closeModal: () => dispatch(closeModal()),
