@@ -1,0 +1,45 @@
+.edit-user-form-container {
+  background-color: #FFFFFF;
+  width: 30vw;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  padding: 5%;  
+}
+
+.edit-user-form-label-container {
+  display: flex;
+  justify-content: space-between;
+  font-size: 120%;
+  border-bottom-color: #EBEBEB;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  font-weight: 400;  
+}
+
+.edit-user-form-label {
+  font-weight: 400;
+}
+
+.edit-user-label {
+font-weight: bold;
+}
+
+.edit-user-form-button {
+  /* margin-left: 25vw; */
+  color: #0A66C2;
+  font-size: 1.5vw;
+  cursor: pointer;
+  background-color: #FFFFFF;  
+  padding: none;
+  border: none;
+}
+
+.edit-user-form-button:hover {
+  background-color: #EBEBEB;
+}
+
+.edit-user-button-container {
+  background-color: #FFFFFF;  
+}

@@ -41,7 +41,7 @@ class UserForm extends React.Component {
     return (
       <div className="edit-user-form-container">
         <div className="edit-user-form-label-container">
-          <div className="create-comment-form-label">Update User Info</div>
+          <div className="edit-user-form-label">Update User Info</div>
           <div className="x-button-icon">
             <div onClick={() => this.props.closeModal()}>
               <FontAwesomeIcon icon={faTimes} />

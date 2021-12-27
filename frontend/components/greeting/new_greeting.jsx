@@ -187,14 +187,21 @@ class NewGreeting extends React.Component {
               </div>
             </div>
             <div className="current-user-socials-container">
-              <div className="current-user-socials-label">Do you like what you see?</div>
+              <div className="current-user-socials-label">Do you like what you see? Click below.</div>
               <div className="current-socials-button-container">
-                <div onClick={() => this.props.history.push('editUser', this.props.author_id)} className="current-user-socials-button">
+                {/* <div onClick={() => this.props.history.push('https://www.linkedin.com/in/jaycee-magpusao-profile/')} className="current-user-socials-button">
                   <FontAwesomeIcon icon={faLinkedin} />
                 </div>   
-                <div onClick={() => this.props.history.push('editUser', this.props.author_id)} className="current-user-socials-button">
+                <div onClick={() => this.props.history.push('https://github.com/JayceeMagpusao')} className="current-user-socials-button">
                   <FontAwesomeIcon icon={faGithub} />
-                </div>   
+                </div>    */}
+                <a href='https://www.linkedin.com/in/jaycee-magpusao-profile/' target='_blank' rel='noreferrer noopener'>
+                  Jaycee's LinkedIn
+                </a>
+                <br />
+                <a href='https://github.com/JayceeMagpusao' target='_blank' rel='noreferrer noopener'>
+                  Jaycee's Github
+                </a>
               </div>
             </div>
           </div>
