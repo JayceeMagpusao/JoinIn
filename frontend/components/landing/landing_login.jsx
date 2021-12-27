@@ -10,6 +10,7 @@ class LandingLoginForm extends React.Component {
       password: '',
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.demoSubmit = this.demoSubmit.bind(this);
   }
 
   update(field) {
@@ -19,11 +20,18 @@ class LandingLoginForm extends React.Component {
   }
 
   handleSubmit(e) {
-    let feed = "/feed"
     e.preventDefault();
     const user = Object.assign({}, this.state);
+
     this.props.processForm(user)
-      // .then(() =>  this.props.history.push(feed));
+      .then(() => window.location.reload(false));
+  }
+
+  demoSubmit(e) {
+    e.preventDefault;
+    const demoUser = {email: 'jaycee@hireme.com', password: '123456'}
+
+    this.props.processForm(demoUser)
       .then(() => window.location.reload(false))
   }
 
@@ -76,6 +84,9 @@ class LandingLoginForm extends React.Component {
               </label>
               <br />
               <input className="sign-in-submit" type="submit" value={this.props.formType} />
+              <br />
+              <button className="sign-in-demo-submit" onClick={this.demoSubmit} >{this.props.demoLogin}
+              </button>
             </div>
           </form>
         </div>

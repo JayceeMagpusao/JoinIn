@@ -53,24 +53,31 @@ class EmailSignupForm extends React.Component {
           </label>
           {this.renderErrors()}
           <div className="login-form">
-            <br />
-          <label>First Name:
-            <input
-              type="text"
-              value={this.state.first_name}
-              onChange={this.update('first_name')}
-              className="login-input" />
-          </label>
-          <br/>
-          <label>Last Name:
-            <input
-              type="text"
+              <br />
+            <label>First Name:
+              <input
+                type="text"
+                value={this.state.first_name}
+                onChange={this.update('first_name')}
+                className="login-input"
+                required />
+            </label>
+            <br/>
+            <label>Last Name:
+              <input
+                type="text"
                 value={this.state.last_name}
                 onChange={this.update('last_name')}
-              className="login-input" />
-          </label>
-            <br />
-            <button className="session-submit" onClick={this.handleSubmit}>Continue</button>
+                className="login-input"
+                required />
+            </label>
+              <br />
+              <button className="session-submit" onClick={this.handleSubmit}>Continue</button>
+              {/* <br />
+              <a href='#/start-signup' className='email-password-link'>Update Email and Password</a>           */}
+              <div className="email-password-link-container">
+                <a href='#/start-signup' className='email-password-link'>Update Email and Password</a> 
+              </div>
           </div>
         </form>
       </div>

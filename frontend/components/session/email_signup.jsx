@@ -45,7 +45,8 @@ class EmailSignupForm extends React.Component {
                 type="text"
                 value={this.state.email}
                 onChange={this.update('email')}
-                className="login-input" />
+                className="login-input"
+                required />
             </label>
             {/* <br /> */}
             <label className="password-label">Password (6 or more characters)
@@ -54,7 +55,8 @@ class EmailSignupForm extends React.Component {
                 type="password"
                 value={this.state.password}
                 onChange={this.update('password')}
-                className="login-input" />
+                className="login-input"
+                required />
             </label>
             {/* <br /> */}
             <button className="session-submit" onClick={this.handleSubmit}>{`Agree & Join`}</button>

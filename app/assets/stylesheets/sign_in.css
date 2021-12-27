@@ -104,3 +104,27 @@
 .sign-in-submit:hover {
   background-color: #004182;
 }
+
+.sign-in-demo-submit {
+  margin-top: 1vw;
+}
+
+.sign-in-demo-submit {
+  width: 100%; 
+  border-radius: 24px;
+  background-color: #0A66C2;
+  color: #FFFFF5;
+  font-size: 1.6rem;
+  display: inline-block;
+  cursor: pointer;
+  line-height: 40px;
+  overflow: hidden;
+  outline-width: 2px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0 16px 0 16px;
+  border: none;
+  background: solid;
+}

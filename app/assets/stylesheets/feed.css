@@ -295,3 +295,7 @@
 .current-user-socials-label {
   font-weight: bold;
 }
+
+.user-social-link:hover {
+  background-color: #EBEBEB;
+}

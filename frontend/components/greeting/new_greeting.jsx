@@ -195,11 +195,11 @@ class NewGreeting extends React.Component {
                 <div onClick={() => this.props.history.push('https://github.com/JayceeMagpusao')} className="current-user-socials-button">
                   <FontAwesomeIcon icon={faGithub} />
                 </div>    */}
-                <a href='https://www.linkedin.com/in/jaycee-magpusao-profile/' target='_blank' rel='noreferrer noopener'>
+                <a href='https://www.linkedin.com/in/jaycee-magpusao-profile/' target='_blank' rel='noreferrer noopener' className='user-social-link'>
                   Jaycee's LinkedIn
                 </a>
                 <br />
-                <a href='https://github.com/JayceeMagpusao' target='_blank' rel='noreferrer noopener'>
+                <a href='https://github.com/JayceeMagpusao' target='_blank' rel='noreferrer noopener' className='user-social-link'>
                   Jaycee's Github
                 </a>
               </div>

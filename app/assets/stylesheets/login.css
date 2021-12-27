@@ -93,3 +93,16 @@ body {
   margin-top: 1vw;
   padding-left: 7vw;
 }
+
+.email-password-link:hover {
+  background-color: #EBEBEB;    
+}
+
+.email-password-link {
+  cursor: pointer;
+}
+
+.email-password-link-container {
+  margin-top: 1vw;
+  margin-left: 30%;
+}
