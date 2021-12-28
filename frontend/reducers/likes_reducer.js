@@ -9,8 +9,7 @@ const LikesReducer = (state = {}, action) => {
       return action.likes;
     case RECEIVE_LIKE:
       const newLike = { [action.like.id]: action.like };
-      // const newLiker = Object.assign({}, state, newLike);
-      console.log("i am in the receive like", newLike) 
+
       return Object.assign({}, state, newLike);
     case REMOVE_LIKE:
       delete nextState[action.likeId];

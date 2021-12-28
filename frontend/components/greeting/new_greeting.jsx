@@ -68,9 +68,7 @@ class NewGreeting extends React.Component {
     let commentPostAuthorId = "commentPostAuthorId";
     let isLiked = "isLiked";
 
-    if (
-      // posts.length !== 0 && likeCounter.length !==0 && commentCounter.length !== 0 && 
-      Array.isArray(posts) && Array.isArray(likeCounter) && Array.isArray(commentCounter) ){
+    if (Array.isArray(posts) && Array.isArray(likeCounter) && Array.isArray(commentCounter) ){
       
       for (let i = 0; i < likeCounter.length; i++) {
         let like = likeCounter[i];
@@ -125,14 +123,8 @@ class NewGreeting extends React.Component {
           let post = posts[p];
           
           if (post.id === likesForPost.post_id && likesForPost.user_id === this.props.current_user_id) {
-            // console.log("i am in the likes for post loop", likesForPost)
-            // console.log("i am in the likes array loop", post.id)
             post[isLiked] = likesForPost.id
-            // console.log("i am in the likes for post loop", post)
           }
-          // if (post.id !== likesForPost.post_id ) {
-          //   post[liked] = false
-          // }
         }
       }
 
@@ -175,10 +167,6 @@ class NewGreeting extends React.Component {
                 <div className="current-user-info">
                   {this.props.currentUserEndDate}
                 </div>
-                {/* <div className="current-user-button-container">
-                  <div className="current-user-edit-button-icon"><FontAwesomeIcon icon={faUserEdit} /></div>
-                  <button onClick={() => this.props.openModal('editUser')} className="edit-user-button">Start a post</button>
-                </div> */}
                 <div className="edit-user-container">
                   <div onClick={() => this.props.openModal('editUser', this.props.author_id)} className="edit-user-button">
                     <FontAwesomeIcon icon={faUserEdit} />
@@ -189,12 +177,6 @@ class NewGreeting extends React.Component {
             <div className="current-user-socials-container">
               <div className="current-user-socials-label">Do you like what you see? Click below.</div>
               <div className="current-socials-button-container">
-                {/* <div onClick={() => this.props.history.push('https://www.linkedin.com/in/jaycee-magpusao-profile/')} className="current-user-socials-button">
-                  <FontAwesomeIcon icon={faLinkedin} />
-                </div>   
-                <div onClick={() => this.props.history.push('https://github.com/JayceeMagpusao')} className="current-user-socials-button">
-                  <FontAwesomeIcon icon={faGithub} />
-                </div>    */}
                 <a href='https://www.linkedin.com/in/jaycee-magpusao-profile/' target='_blank' rel='noreferrer noopener' className='user-social-link'>
                   Jaycee's LinkedIn
                 </a>
@@ -225,7 +207,6 @@ class NewGreeting extends React.Component {
                       <div className="post-like-comment-container">
                         <div className="post-like-container">
                           <div className="post-like-counter">
-                            {/* {post.likeCount + " likes"} */}
                             {post.likeCount}
                             {post.isLiked ? 
                             <div onClick={() => this.deleteLike(post.isLiked)} className="post-unlike-button">
@@ -237,7 +218,6 @@ class NewGreeting extends React.Component {
                           </div>
                           <div className="post-comment-container">
                             <div className="post-comment-counter">
-                              {/* {post.commentCount + " comments"} */}
                               {post.commentCount}
                             </div>
                             <div onClick={() => this.props.openModal('comment', post.id)} className="post-comment-create-button">
@@ -278,7 +258,7 @@ class NewGreeting extends React.Component {
                                   <div>
                                     <FontAwesomeIcon icon={faEdit} /></div>
                                   </div>
-                                : null}
+                                  : null}
                                 </div>
                           </div>
                           </div>

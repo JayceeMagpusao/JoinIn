@@ -5,7 +5,6 @@ import { fetchPost, fetchPosts } from '../../actions/post_actions';
 import EditCommentForm from './edit_comment_form';
 
 const mapStateToProps = (state) => {
-  console.log("i am in the comment container", state.entities.comments)
   return {
     comment_id: state.entities.comments,
     errors: state.errors.session,

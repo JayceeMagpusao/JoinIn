@@ -16,7 +16,7 @@ function Modal({ modal, closeModal, allPosts, allComments, currentUser }) {
   switch (modal.type) {
     case 'editUser':
       let editUser = currentUser
-      console.log("i am in the modal", editUser)
+
       component = <EditUserFormContainer user={editUser}/>;
       break;
     case 'post':
@@ -24,6 +24,7 @@ function Modal({ modal, closeModal, allPosts, allComments, currentUser }) {
       break;
     case 'editPost':
       let editPost = allPosts[modal.id]
+
       allPosts.posts.forEach(post => {
         if (post.id === modal.id){
           editPost = post
@@ -33,6 +34,7 @@ function Modal({ modal, closeModal, allPosts, allComments, currentUser }) {
       break;
     case 'comment':
       let commentPost = allPosts[modal.id]
+      
       allPosts.posts.forEach(post => {
         if (post.id === modal.id){
           commentPost = post
@@ -42,19 +44,7 @@ function Modal({ modal, closeModal, allPosts, allComments, currentUser }) {
       break;
     case 'editComment':
       let editedComment = allComments[modal.id]
-      // this.fetchComment(modal.id)
 
-      console.log("i am in the edit comment modal props", editedComment)
-      // console.log("i am in the edit comment modal state", state)
-      // debugger
-      // allPosts.posts.forEach(post => {
-      //   // console.log("all posts", allPosts.posts)
-      //   if (post.id === modal.id){
-      //     editComment = post
-      //   }
-      // })
-      // console.log("i am in the comments", comments)
-      // component = <EditCommentFormContainer post={editedComment} />;
       component = <EditCommentFormContainer comment={editedComment}/>;
       break;
     default:
