@@ -1,7 +1,5 @@
 import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
-import { RECEIVE_USERS, RECEIVE_USER, REMOVE_USER } from '../actions/users_actions'
-
-// import { RECEIVE_REVIEW, RECEIVE_BENCH } from '../actions/bench_actions';
+import { RECEIVE_USERS, RECEIVE_USER, REMOVE_USER } from '../actions/users_actions';
 
 const usersReducer = (state = {}, action) => {
   Object.freeze(state);

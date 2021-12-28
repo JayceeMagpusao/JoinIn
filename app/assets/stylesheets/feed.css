@@ -197,6 +197,7 @@
 .post-like-container {
   display: flex;
   justify-content: space-between;
+  width: 175%;
 }
 
 .post-button-container {
@@ -219,10 +220,6 @@
 .delete-button-container:hover {
   background-color: #EBEBEB;
   cursor: pointer;
-}
-
-.post-comment-container {
-  margin-left: 2vw;
 }
 
 .comments-body {
@@ -274,7 +271,6 @@
   color: #0A66C2;
   font-size: 1.5vw;
   cursor: pointer;
-  margin-right: 5%;
 }
 
 .edit-user-button:hover {
@@ -305,4 +301,44 @@
 
 .current-user-info-box {
   padding-left: 5%;
+}
+
+.edit-delete-container {
+  display: flex;
+  justify-content: space-between;
+  width: 25%;
+}
+
+.post-like-counter {
+  display: flex;
+  justify-content: space-between;
+}
+
+.post-comment-container {
+  display: flex;
+  justify-content: space-between;    
+}
+
+.post-like-counter-number {
+  margin-left: 20%;
+}
+
+.post-comment-counter {
+  margin-left: 20%;
+}
+
+.edit-button-label {
+  margin-left: 5%;
+}
+
+.delete-button-label {
+  margin-left: 5%;
+}
+
+.feed-post-delete {
+  display: flex;
+}
+
+.feed-post-edit {
+  display: flex;
 }

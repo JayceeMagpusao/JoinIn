@@ -203,45 +203,51 @@ class NewGreeting extends React.Component {
                     <div className="post-body-container">
                       {post.body}
                     </div>
-                    <div className="post-button-container">
-                      <div className="post-like-comment-container">
-                        <div className="post-like-container">
-                          <div className="post-like-counter">
-                            {post.likeCount}
-                            {post.isLiked ? 
-                            <div onClick={() => this.deleteLike(post.isLiked)} className="post-unlike-button">
-                              <FontAwesomeIcon icon={faThumbsUp} />
-                            </div> : 
-                            <div onClick={() => this.createLike(this.state.author_id, post.id)} className="post-liked-button">
-                              <FontAwesomeIcon icon={faThumbsUp} />
-                            </div>}
-                          </div>
-                          <div className="post-comment-container">
-                            <div className="post-comment-counter">
-                              {post.commentCount}
+                    <div className="post-functions-container">
+                      <div className="post-button-container">
+                        <div className="post-like-comment-container">
+                          <div className="post-like-container">
+                            <div className="post-like-counter">
+                              {post.isLiked ? 
+                              <div onClick={() => this.deleteLike(post.isLiked)} className="post-unlike-button">
+                                <FontAwesomeIcon icon={faThumbsUp} />
+                              </div> : 
+                              <div onClick={() => this.createLike(this.state.author_id, post.id)} className="post-liked-button">
+                                <FontAwesomeIcon icon={faThumbsUp} />
+                              </div>}
+                              <div className="post-like-counter-number">{post.likeCount}</div>
                             </div>
-                            <div onClick={() => this.props.openModal('comment', post.id)} className="post-comment-create-button">
-                              <FontAwesomeIcon icon={faComment} />
-                            </div>                   
+                            <div className="post-comment-container">
+                              <div onClick={() => this.props.openModal('comment', post.id)} className="post-comment-create-button">
+                                <FontAwesomeIcon icon={faComment} />
+                              </div>       
+                              <div className="post-comment-counter">
+                                {post.commentCount}
+                              </div>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                      <div className="edit-delete-container">
-                        <div className="edit-button-container">
-                          {this.props.current_user_id === post.author_id ? 
-                            <div onClick={() => this.props.openModal('editPost', post.id)} className="feed-post-edit">
-                              <div>
-                                <FontAwesomeIcon icon={faPencilAlt} />Edit</div>
+                        <div className="edit-delete-container">
+                          <div className="edit-button-container">
+                            {this.props.current_user_id === post.author_id ? 
+                              <div onClick={() => this.props.openModal('editPost', post.id)} className="feed-post-edit">
+                                <div className="edit-button-box">
+                                  <FontAwesomeIcon icon={faPencilAlt} />
+                                </div>
+                                <div className="edit-button-label">Edit</div>
                               </div>
-                            : <br />}
-                        </div>
-                        <div className="delete-button-container">
-                          {this.props.current_user_id === post.author_id ? 
-                            <div onClick={() => this.props.deletePost(post.id)} className="feed-post-delete">
-                              <div>
-                                <FontAwesomeIcon icon={faTrashAlt} />Delete</div>
+                              : <br />}
+                          </div>
+                          <div className="delete-button-container">
+                            {this.props.current_user_id === post.author_id ? 
+                              <div onClick={() => this.props.deletePost(post.id)} className="feed-post-delete">
+                                <div className="delete-button-box">
+                                  <FontAwesomeIcon icon={faTrashAlt} />
+                                </div>
+                                <div className="delete-button-label">Delete</div>
                               </div>
-                            : <br/>}
+                              : <br/>}
+                          </div>
                         </div>
                       </div>
                     </div>

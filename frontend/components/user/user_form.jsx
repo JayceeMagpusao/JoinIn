@@ -49,19 +49,25 @@ class UserForm extends React.Component {
           </div>
         </div>
         <form onSubmit={this.handleSubmit}>
-          <div className="edit-user-label">First Name</div>
-          <div className="edit-user-input">
-            <input type="text"
-            value={this.state.first_name}
-            onChange={this.update('first_name')}
-            className="edit-user-input" />
-          </div>
-          <div className="edit-user-label">Last Name</div>
-          <div className="edit-user-input">
-            <input type="text"
-            value={this.state.last_name}
-            onChange={this.update('last_name')}
-            className="edit-user-input" />
+          <div className="full-name-container">
+            <div className="first-name-container">
+              <div className="edit-user-label">First Name</div>
+              <div className="edit-user-input">
+                <input type="text"
+                value={this.state.first_name}
+                onChange={this.update('first_name')}
+                className="edit-user-input" />
+              </div>
+            </div>
+            <div className="last-name-container">
+              <div className="edit-user-label">Last Name</div>
+              <div className="edit-user-input">
+                <input type="text"
+                value={this.state.last_name}
+                onChange={this.update('last_name')}
+                className="edit-user-input" />
+              </div>
+            </div>
           </div>
           <div className="edit-user-label">Email</div>
           <div className="edit-user-input">
@@ -93,14 +99,14 @@ class UserForm extends React.Component {
           </div>
           <div className="edit-user-label">Start Date</div>
           <div className="edit-user-input">
-            <input type="text"
+            <input type="date"
             value={this.state.start_date}
             onChange={this.update('start_date')}
             className="edit-user-input" />
           </div>
           <div className="edit-user-label">End Date</div>
           <div className="edit-user-input">
-            <input type="text"
+            <input type="date"
             value={this.state.end_date}
             onChange={this.update('end_date')}
             className="edit-user-input" />

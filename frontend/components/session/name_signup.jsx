@@ -73,8 +73,6 @@ class EmailSignupForm extends React.Component {
             </label>
               <br />
               <button className="session-submit" onClick={this.handleSubmit}>Continue</button>
-              {/* <br />
-              <a href='#/start-signup' className='email-password-link'>Update Email and Password</a>           */}
               <div className="email-password-link-container">
                 <a href='#/start-signup' className='email-password-link'>Update Email and Password</a> 
               </div>

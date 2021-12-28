@@ -24,6 +24,7 @@
 
 .edit-user-label {
 font-weight: bold;
+font-size: 0.7vw
 }
 
 .edit-user-form-button {
@@ -41,4 +42,18 @@ font-weight: bold;
 
 .edit-user-button-container {
   background-color: #FFFFFF;  
+}
+
+.edit-user-input {
+  border-radius: 4px;
+  border-color: #EBEBEB;
+}
+
+.full-name-container {
+  margin-top: 2%;
+  display: flex;
+}
+
+.last-name-container {
+  margin-left: 5%;
 }
