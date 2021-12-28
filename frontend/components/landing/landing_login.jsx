@@ -29,7 +29,7 @@ class LandingLoginForm extends React.Component {
 
   demoSubmit(e) {
     e.preventDefault;
-    const demoUser = {email: 'jaycee@hireme.com', password: '123456'}
+    const demoUser = {email: 'demo_user@hireme.com', password: '123456'}
 
     this.props.processForm(demoUser)
       .then(() => window.location.reload(false))
