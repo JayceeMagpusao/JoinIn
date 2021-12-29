@@ -1,3 +1,8 @@
+# requiring relative files for seeding
+require_relative './seeds/users.rb'
+require_relative './seeds/posts.rb'
+
+# comments for seeeding database
 comment1 = Comment.create!(user_id: 1, post_id: 1, post_author_id: 6, body: "True story")
 
 comment2 = Comment.create!(user_id: 6, post_id: 1, post_author_id: 6, body: "Preach")

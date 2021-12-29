@@ -15,5 +15,5 @@ Like.destroy_all
 # seed database with users, posts, comments, and likes
 require_relative './seeds/users.rb'
 require_relative './seeds/posts.rb'
-require_relative './seeds/comments.rb'
 require_relative './seeds/likes.rb'
+require_relative './seeds/comments.rb'
