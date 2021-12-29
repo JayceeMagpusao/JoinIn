@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# destroy all
+User.destroy_all
+Post.destroy_all
+Comment.destroy_all
+Like.destroy_all
+
+# seed database with users, posts, comments, and likes
+require_relative './seeds/users.rb'
+require_relative './seeds/posts.rb'
+require_relative './seeds/comments.rb'
+require_relative './seeds/likes.rb'
