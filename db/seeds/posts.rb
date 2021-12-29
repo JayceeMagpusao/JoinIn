@@ -30,3 +30,5 @@ post11 = Post.create!(body: "Edit this comment to test function! Come on, you kn
 to!", author_id: 1)
 
 post12 = Post.create!(body: "The best way to predict the future is to create it.", author_id: 2)
+
+comment1 = Comment.create!(user_id: user1.id, post_id: post1.id, post_author_id: user6.id, body: "True story")
