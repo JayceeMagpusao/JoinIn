@@ -11,6 +11,13 @@ class LandingLoginForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.demoSubmit = this.demoSubmit.bind(this);
+    this.onLinkClick = this.onLinkClick.bind(this);
+  }
+
+  onLinkClick(e) {
+    e.preventDefault();
+    this.props.history.push("start-signup");
+    then(() => window.location.reload(false));
   }
 
   update(field) {
@@ -38,11 +45,13 @@ class LandingLoginForm extends React.Component {
   renderErrors() {
     return (
       <ul>
-        {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
-            {error}
-          </li>
-        ))}
+        <div className="sign-in-errors-container">
+          {this.props.errors.map((error, i) => (
+            <li key={`error-${i}`} className="sign-in-errors-list">
+              {error}
+            </li>
+          ))}
+        </div>
       </ul>
     );
   }
@@ -65,6 +74,7 @@ class LandingLoginForm extends React.Component {
               Stay updated on your professional world
             </label>
             <br />
+            {/* {this.props.errors === 0 ? null : this.renderErrors()} */}
             {this.renderErrors()}
             <div className="sign-in-form">
               <label for="email" className="sign-in-email-label">Email
@@ -92,7 +102,7 @@ class LandingLoginForm extends React.Component {
         </div>
         <div className="new-to-joinin-box">
           <label className="new-to-joinin-text">New to JoinIn?</label>
-          <Link to="/start-signup">Join now</Link>
+          <Link href="/" onClick={this.onLinkClick}>Join now</Link>
         </div>
       </div>
     )

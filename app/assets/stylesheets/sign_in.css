@@ -133,3 +133,14 @@
   border: none;
   background: solid;
 }
+
+.sign-in-errors-list {
+  background-color: #FFBABA;
+  color: #AF0606;
+  padding: 2%;
+  border-radius: 0;
+  position: relative; 
+  display: inline-block;
+  box-shadow: 1px 1px 1px #aaaaaa;
+  margin-top: 10px;  
+}
