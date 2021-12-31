@@ -10,12 +10,6 @@ class EmailSignupForm extends React.Component {
       password: '',
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.onLinkClick = this.onLinkClick.bind(this);
-  }
-
-  onLinkClick() {
-    this.props.history.push("/landing")
-      .then(() => window.location.reload(false))
   }
 
   update(field) {
@@ -68,7 +62,7 @@ class EmailSignupForm extends React.Component {
             <button className="session-submit" onClick={this.handleSubmit}>{`Agree & Join`}</button>
             <div className="already-signed-up-box">
               <label className="already-signed-up-text">Already on JoinIn?</label>
-              <Link to="/landing" onClick={this.onLinkClick}>Sign in</Link>
+              <Link to="/landing" >Sign in</Link>
             </div>
           </div>
         </form>

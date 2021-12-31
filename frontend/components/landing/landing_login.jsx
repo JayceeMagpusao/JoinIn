@@ -11,13 +11,6 @@ class LandingLoginForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.demoSubmit = this.demoSubmit.bind(this);
-    this.onLinkClick = this.onLinkClick.bind(this);
-  }
-
-  onLinkClick(e) {
-    e.preventDefault();
-    this.props.history.push("start-signup");
-    then(() => window.location.reload(false));
   }
 
   update(field) {
@@ -54,6 +47,12 @@ class LandingLoginForm extends React.Component {
         </div>
       </ul>
     );
+  }
+
+  componentWillUnmount(){
+    if (this.props.errors.length !== 0) {
+      window.location.reload(false)
+    }
   }
 
   render() {
@@ -102,7 +101,7 @@ class LandingLoginForm extends React.Component {
         </div>
         <div className="new-to-joinin-box">
           <label className="new-to-joinin-text">New to JoinIn?</label>
-          <Link href="/" onClick={this.onLinkClick}>Join now</Link>
+          <Link to="/start-signup" >Join now</Link>
         </div>
       </div>
     )

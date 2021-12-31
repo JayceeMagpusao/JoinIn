@@ -14,6 +14,10 @@ class EmailSignupForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentWillUnmount(){
+    window.location.reload(false)
+  }
+
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
