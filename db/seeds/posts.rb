@@ -23,12 +23,10 @@ at Your Company!", author_id: 3)
 post9 = Post.create!(body: "Software engineering is the only profession 
 where it is ok to copy other people's work.", author_id: 1) 
 
-post10 = Post.create!(body: "Delete this comment to test function! Don't be shy! Left it here 
+post10 = Post.create!(body: "Delete this post to test function! Don't be shy! Left it here 
 just for you!", author_id: 1)
 
-post11 = Post.create!(body: "Edit this comment to test function! Come on, you know you want 
+post11 = Post.create!(body: "Edit this post to test function! Come on, you know you want 
 to!", author_id: 1)
 
 post12 = Post.create!(body: "The best way to predict the future is to create it.", author_id: 2)
-
-comment1 = Comment.create!(user_id: user1.id, post_id: post1.id, post_author_id: user6.id, body: "True story")
